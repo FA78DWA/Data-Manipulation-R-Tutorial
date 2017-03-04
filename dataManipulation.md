@@ -1,6 +1,6 @@
--   [Creating and subsetting Dataframes](#creating-and-subsetting-dataframes)
+-   [Creating and subsetting dataframes](#creating-and-subsetting-dataframes)
 
-Creating and subsetting Dataframes
+Creating and subsetting dataframes
 ==================================
 
 ``` r
@@ -69,3 +69,17 @@ df[which(df$var2 > 8),]
 
     ##   var1 var2 var3
     ## 2    2    9   15
+
+``` r
+## sort variables in ascending order by default 
+sort(df$var1)
+```
+
+    ## [1] 1 2 3 4 5
+
+``` r
+## for descending order
+sort(df$var1, decreasing = TRUE)
+```
+
+    ## [1] 5 4 3 2 1

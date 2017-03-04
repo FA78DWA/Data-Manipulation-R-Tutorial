@@ -8,7 +8,7 @@ output:
     toc: true
     toc_depth: 3
 ---
-# Creating and subsetting Dataframes
+# Creating and subsetting dataframes
 ```{r}
 set.seed(0)
 
@@ -34,5 +34,12 @@ df[(df$var1 <= 3 & df$var3>11),]
 
 ## use which to return the indices that satisfy a certain condition
 df[which(df$var2 > 8),]
+
+## sort variables in ascending order by default 
+sort(df$var1)
+
+## for descending order
+sort(df$var1, decreasing = TRUE)
+
 ```
 
