@@ -9,6 +9,7 @@ output:
     toc_depth: 3
 ---
 # Creating and subsetting dataframes
+## Sort & Order
 ```{r}
 set.seed(0)
 
@@ -41,5 +42,40 @@ sort(df$var1)
 ## for descending order
 sort(df$var1, decreasing = TRUE)
 
+## incase of sorting data with missing variables, we can add them at the end
+sort(df$var2, na.last = TRUE)
+
+## re-ordering the rows of the dataframe wrt some variable.
+df[order(df$var1),]
+
+## we can sort using 2 variables, so that if there is a tie using the 1st variable, order with the second one
+df[order(df$var1,df$var3),]
+
+## ordering with plyr package
+library(plyr)
+arrange(df, var1) #increasing order
+
+arrange(df, desc(var1)) #decreasing order
+
+
+
+```
+## Add rows and columns
+```{r}
+## create the dataframe
+df <- data.frame("var1" = sample(1:5), "var2" = sample(6:10), "var3" = sample(11:15))
+df
+
+## add var4 contains some random values
+df$var4 <- rnorm(5)
+df
+
+## another way to do this is using column bind function cbind. It pastes the new column into the right side of the df. If you switch orders the new column will be added into the left side.
+df2 <- cbind(df,rnorm(5))
+df2
+
+## add rows using row bind function rbind. Order matters just like cbind.
+df3 <- rbind(df,rep(100,4))
+df3
 ```
 
