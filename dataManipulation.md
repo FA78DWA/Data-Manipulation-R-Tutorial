@@ -1,0 +1,71 @@
+-   [Creating and subsetting Dataframes](#creating-and-subsetting-dataframes)
+
+Creating and subsetting Dataframes
+==================================
+
+``` r
+set.seed(0)
+
+## create a dataframe with 5 rows, and 3 columns named var1,2,3.
+df <- data.frame("var1" = sample(1:5), "var2" = sample(6:10), "var3" = sample(11:15))
+df
+```
+
+    ##   var1 var2 var3
+    ## 1    5    7   11
+    ## 2    2    9   15
+    ## 3    4    8   14
+    ## 4    3   10   12
+    ## 5    1    6   13
+
+``` r
+## randomly re-arrange the rows and set the 1st and the 3rd rows in the var2 column to NA
+df <- df[sample(1:5),]; df$var2[c(1,3)] = NA
+df
+```
+
+    ##   var1 var2 var3
+    ## 4    3   NA   12
+    ## 2    2    9   15
+    ## 3    4   NA   14
+    ## 5    1    6   13
+    ## 1    5    7   11
+
+``` r
+## subsetting the 1st column
+df[,1] 
+```
+
+    ## [1] 3 2 4 1 5
+
+``` r
+## you can subset the column with ts name
+df[,"var1"]
+```
+
+    ## [1] 3 2 4 1 5
+
+``` r
+## subsetting the first 2 rows and the 2nd column
+df[1:2,"var2"]
+```
+
+    ## [1] NA  9
+
+``` r
+## Subset using logical statements. get the columns with rows satisfy var1 <= 3 and var3 > 11
+df[(df$var1 <= 3 & df$var3>11),]
+```
+
+    ##   var1 var2 var3
+    ## 4    3   NA   12
+    ## 2    2    9   15
+    ## 5    1    6   13
+
+``` r
+## use which to return the indices that satisfy a certain condition
+df[which(df$var2 > 8),]
+```
+
+    ##   var1 var2 var3
+    ## 2    2    9   15

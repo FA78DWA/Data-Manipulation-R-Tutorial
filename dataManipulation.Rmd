@@ -1,12 +1,12 @@
 ---
 title: "R Notebook - Data Manipulation"
-output: html_notebook
+# output: html_notebook
 
-# output:
-#   md_document:
-#     variant: markdown_github
-#     toc: true
-#     toc_depth: 3
+output:
+  md_document:
+    variant: markdown_github
+    toc: true
+    toc_depth: 3
 ---
 # Creating and subsetting Dataframes
 ```{r}
