@@ -79,3 +79,138 @@ df3 <- rbind(df,rep(100,4))
 df3
 ```
 
+Another way to do this is using column bind function cbind. It pastes the new column into the right side of the df. If you switch orders the new column will be added into the left side.
+```{r}
+df2 <- cbind(df,rnorm(5))
+df2
+
+## add rows using row bind function rbind. Order matters just like cbind.
+df3 <- rbind(df,rep(100,4))
+df3
+```
+
+# Summarizing Data
+```{r}
+restaurants <- read.csv("Restaurants.csv")
+
+## Show the first 3 rows. Without specifying n, it will give the top 6 rows
+head(restaurants, n=3)
+
+## show the last 3 rows. Without specifying n, it will give the last 6 rows
+tail(restaurants, n=3)
+
+## make summary. It gives histogram for string columns and quantiles for numeric columns
+summary(restaurants)
+
+## more in depth details
+str(restaurants)
+
+## Quantiles
+quantile(restaurants$councilDistrict, na.rm = T)
+
+## passing probabilities to quantile
+quantile(restaurants$councilDistrict, na.rm = T, probs = c(0.5,0.7,0.9))
+```
+## tables
+`table()`  makes a histogram for the input observations. `useNA = "ifany"` will add NA column in the output contains the number of missing values. `table()` can also take 2 variables to construct a 2D histogram.
+```{r}
+## counting the number of occurence for eah zipcode
+table(restaurants$zipCode, useNA = "ifany")
+
+## 2D histogram
+table(restaurants$councilDistrict, restaurants$zipCode)
+
+```
+## Check for missing values
+
+Use `is.na` to check if the value in na or not. it gives `True` or `False` output with the same size as the input.
+
+Note that in `R`, `True = 1`, and `false = 0`, so we can sum the output of `is.na()` to get the number of `NA` values.
+```{r}
+## Example
+x <- c(1,5,NA, 10, NA)
+is.na(x) # we expect the output to be F,F,T,F,T
+
+## number of NAs
+sum(is.na(x))
+```
+
+If we want to check if there is any `NA` in the input data. we can use `any()` that gives `True` if any of its inputs is `True` and `False` otherwise. 
+```{r}
+x <- c(1,5,9, 10, NA)
+any(is.na(x))
+```
+
+To check if every single value satisfies a certain condition, use `all()`
+```{r}
+y <- c(5,6,7,8,9,10)
+## Check if all values in y is greater than 0
+all(y>0)
+```
+## Sum across rows and columns
+```{r}
+## get the number of NAs in each column
+colSums(is.na(restaurants))
+
+## make sure that there is no missing data
+all(colSums(is.na(restaurants)) == 0)
+```
+
+## Find specific values in your data
+
+Suppose we want to find how many times the zipcode `21212` occurs in our data. Two ways...
+```{r}
+## method # 1
+sum(restaurants$zipCode == "21212")
+
+## method # 2
+table(restaurants$zipCode %in% c("21212"))
+```
+
+If we are searching for the occurrence of two zipcodes `21212` and `21213`, apply the same methods. The second method is more compact.
+```{r}
+## method # 1
+sum(restaurants$zipCode == "21212" | restaurants$zipCode == "21213")
+
+## method # 2
+table(restaurants$zipCode %in% c("21212", "21213"))
+```
+
+We can use the output of the previous example to subset our data, by putting the expression in the row subsetting part in `restaurants[rows,columns]`
+```{r}
+## get the data of all restaurants with zipcode "21212" or "21213"
+restaurants[restaurants$zipCode %in% c("21212", "21213"),]
+```
+
+## Cross tabs and Flat tables
+```{r}
+## load UCB admissions R dataset 
+data("UCBAdmissions")
+
+## Read it as a dataframe
+df = as.data.frame(UCBAdmissions)
+
+## Summarize data
+summary(df)
+```
+
+Creating a cross tab that shows the `Freq` relationship between `Gender` and `Admit`. Let's take a look at the syntax below. `Freq ~` means, break `Freq` variable by. So, `Freq ~ Gender+Admit` means break `Freq` by `Gender` and `Admit`. Finally, `data=df` means take these data information from `df` that we already created.
+```{r}
+xt <- xtabs(Freq ~ Gender+Admit, data = df)
+xt
+
+## flat tables gives more compact output
+ftable(xt)
+```
+
+# Size of the dataset
+```{r}
+fake = rnorm(1e5)
+
+## output in bytes
+object.size(fake)
+
+## change the units of the output to Mb
+print(object.size(fake), units="Mb")
+```
+

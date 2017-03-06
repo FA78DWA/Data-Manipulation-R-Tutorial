@@ -173,7 +173,9 @@ $(document).ready(function () {
 
 <!-- rnb-text-begin -->
 <div id="creating-and-subsetting-dataframes" class="section level1">
-<h1>Creating and subsetting Dataframes</h1>
+<h1>Creating and subsetting dataframes</h1>
+<div id="sort-order" class="section level2">
+<h2>Sort &amp; Order</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2V0LnNlZWQoMClcbiMjIGNyZWF0ZSBhIGRhdGFmcmFtZSB3aXRoIDUgcm93cywgYW5kIDMgY29sdW1ucyBuYW1lZCB2YXIxLDIsMy5cbmRmIDwtIGRhdGEuZnJhbWUoXCJ2YXIxXCIgPSBzYW1wbGUoMTo1KSwgXCJ2YXIyXCIgPSBzYW1wbGUoNjoxMCksIFwidmFyM1wiID0gc2FtcGxlKDExOjE1KSlcbmRmXG5gYGAifQ== -->
@@ -182,7 +184,7 @@ $(document).ready(function () {
 df &lt;- data.frame(&quot;var1&quot; = sample(1:5), &quot;var2&quot; = sample(6:10), &quot;var3&quot; = sample(11:15))
 df</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MywibnJvdyI6NX0sInJkZiI6Ikg0c0lBQUFBQUFBQUJsMVF5dzZDTUJEY3RxQ0N6OFR2a0VROWVmY0xQSG10aUVyRWxwVDZPUHJsNnJhMFNZVmtZRHJibWQxbHQ5MnYwbjBLQUJRWW8wQVowb2ppaTBBRWlmbStBTmdjaWFtTUViR0R1UlE1blFTMVBzSVlCd2dUM0F0cVE4UVVNVUdNV3YydldTejRyV2lRekd4d0swWVBycFlCWHdWODNRbElsSHhtUHNSMHBXK3dUOXp0bEZlODhaMjhtQjY1NXRsSm9SOVBuNDZsTDJ0ZFNvRW1PbmY3aEdhaU9zTDBMc3dreDBWK3VZdnJZdVArQjJrSHN0TVJsK001YTF2U3I0dUtYVlN2RU9kU0ZINzJpaCtLeWgwbXVMRmRPS3RWS2JUZkJOVW0wMUp6ZnkvTlplVVZ1eHQ4Zm04YjVydjlBUUFBIn0= -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MywibnJvdyI6NX0sInJkZiI6Ikg0c0lBQUFBQUFBQUJsMVFXdzZDTUJEY3RxQ0N6OFJ6U09MakNKN0FMMzhyb2hLeEphVStQajI1dWkxdFVpRVptTTUyWm5mWmJmZXJkSjhDQUFYR0tGQ0dOS0w0SWhCQllyNHZBRFpIWWlwalJPeGdMa1ZPSjBHdGp6REdBY0lFOTRMYUVERkZUQkNqVnY5ckZndCtLeG9rTXh2Y2l0R0RxMlhBVndGZmR3SVNKWitaRHpGZDZSdnNFM2M3NVJWdmZDY3Zwa2V1ZVhaUzZNZlRwMlBweTFxWFVxQ0p6dDArb1ptb2pqQzlDelBKY1pGZjd1SzYyTGovUWRxQjdIVEU1WGpPMnBiMDY2SmlGOVVyeExrVWhaKzk0b2VpY29jSmJtd1h6bXBWQ3UwM1FiWEp0TlRjMzB0eldYbkY3Z2FmSHhhcW9pTDlBUUFBIn0= -->
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["var1"],"name":[1],"type":["int"],"align":["right"]},{"label":["var2"],"name":[2],"type":["int"],"align":["right"]},{"label":["var3"],"name":[3],"type":["int"],"align":["right"]}],"data":[{"1":"5","2":"7","3":"11"},{"1":"2","2":"9","3":"15"},{"1":"4","2":"8","3":"14"},{"1":"3","2":"10","3":"12"},{"1":"1","2":"6","3":"13"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[5]},"pages":{}}}
@@ -194,7 +196,7 @@ df</code></pre>
 df &lt;- df[sample(1:5),]; df$var2[c(1,3)] = NA
 df</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MywibnJvdyI6NX0sInJkZiI6Ikg0c0lBQUFBQUFBQUJsMVFUVy9DTUF4MVBncHFZVENwdjROS3NOUHUvSUtkdUdhbGJOVktndEt3Y2VTWE01elVrYUpVY3ZQOFlyOW41Mk4vMkZXSENnQTRDTUdCQzRTUzQ0K0JoTktmTndCUkkvQTNMeGdGWVY4a1ErSEVoYnM3aEsra2M0WXhUL3FXR0d1TUZYR0x6S3pRNnR5TkNGNkR5VVRLWDJXM0NkNGwrQzBUS0szNWE2SklkSlUwcmFDYzVhN3RvTWJvR3NucXFKeHFUaGExTUh0a0xYTnpjYjNSMk1SclVrMmJtYzJJOVZYN3FZNmI5dnVxZnpidjNvRGVqdEdrNlR1eWFWcHZ5ZjlKcWlDcFdhZS9ldDNGMlFmMTJRMlVySEQ3c0h4enNiMTJjUk5reDhZWnAySmQxWm9oTW1FM2VEd0JZV213MGdrQ0FBQT0ifQ== -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MywibnJvdyI6NX0sInJkZiI6Ikg0c0lBQUFBQUFBQUJsMVEyMjdDTUF4MUxnVzFNSmpVNzZBU2JKL0FGK3lKMTZ5VXJWcEpVQm8ySHZseWhwTTZVcFJLYm81UDdIUHNmT3dQdStwUUFRQUhJVGh3Z1ZCeS9ER1FVUHJ6QmlCcUJQN21CYU1nN0l0a0tKeTRjSGVIOEpWMHpqRG1TZDhTWTQyeEltNlJtUlZhbmJzUndXc3dtVWo1cSt3Mndic0V2MlVDcFRWL1RSU0pycEttRlpTejNMVWQxQmhkSTFrZGxWUE55YUlXWm8rc1pXNHVyamNhbTNoTnFta3pzeG14dm1vLzFYSFRmbC8xeitiZEc5RGJNWm8wZlVjMlRlc3QrVDlKRlNRMTYvUlhyN3M0KzZBK3U0R1NGVzRmbG04dXR0Y3Vib0xzMkRqalZLeXJXak5FSnV3R2p5Y1kyUFJMQ1FJQUFBPT0ifQ== -->
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["var1"],"name":[1],"type":["int"],"align":["right"]},{"label":["var2"],"name":[2],"type":["int"],"align":["right"]},{"label":["var3"],"name":[3],"type":["int"],"align":["right"]}],"data":[{"1":"3","2":"NA","3":"12","_rn_":"4"},{"1":"2","2":"9","3":"15","_rn_":"2"},{"1":"4","2":"NA","3":"14","_rn_":"3"},{"1":"1","2":"6","3":"13","_rn_":"5"},{"1":"5","2":"7","3":"11","_rn_":"1"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[5]},"pages":{}}}
@@ -226,7 +228,7 @@ df[1:2,&quot;var2&quot;]</code></pre>
 <pre class="r"><code>## Subset using logical statements. get the columns with rows satisfy var1 &lt;= 3 and var3 &gt; 11
 df[(df$var1 &lt;= 3 &amp; df$var3&gt;11),]</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MywibnJvdyI6M30sInJkZiI6Ikg0c0lBQUFBQUFBQUJsMVF5dzZDTUJCY1d0QklmQ1YraHlUcXlidGY0SWxyQlZRaXRxYlV4OUV2UjdlbG13Qk5hR2VIbmRuSDhaQnU0elFHQUFhY00yQWNZY2p3Q2lDRWlYMC9BSHlGd1A2WitaYzdnVTN5M0JmY3NZSlJKMitLMzZLTmU2YVJGUGVpUnJCMGlTMFp2b1RlZFBDMmczY0RnNGxXNzRSTXFGcm91NHFHMWJKSzFGU055RGdYUmlSbmpSNFlOUVBKV0QxTXFTU0syS3AxN0lrRFBTQVdUMm03eWRmWjlTbHY2NzB0NFBkRE93bzZPL1RZbG1RL2J4VjVxMUVoTDZVc3FQZEtuSXJLQjNPYzJnMmRQSFFwRFUyQ2JKMFlaUVRseFptcWlIR3pRZk1Ia0hGUU9la0JBQUE9In0= -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MywibnJvdyI6M30sInJkZiI6Ikg0c0lBQUFBQUFBQUJsMVFXdzZDTUJCY1d0QklmQ1dlUXhJZlIvQUVmdkZiQVpXSXJTbjE4ZW5KMFczcEprQVQydGxoWi9aeFBLVGJPSTBCZ0FIbkRCaEhHREs4QWdoaFl0OFBBRjhoc0g5bS91Vk9ZSk04OXdWM3JHRFV5WnZpdDJqam5ta2t4YjJvRVN4ZFlrdUdMNkUzSGJ6dDROM0FZS0xWT3lFVHFoYjZycUpodGF3U05WVWpNczZGRWNsWm93ZEd6VUF5Vmc5VEtva2l0bW9kZStKQUQ0akZVOXB1OG5WMmZjcmJlbThMK1AzUWpvTE9EajIySmRuUFcwWGVhbFRJU3lrTDZyMFNwNkx5d1J5bmRrTW5EMTFLUTVNZ1d5ZEdHVUY1Y2FZcVl0eHMwUHdCNmNBVW9Pa0JBQUE9In0= -->
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["var1"],"name":[1],"type":["int"],"align":["right"]},{"label":["var2"],"name":[2],"type":["int"],"align":["right"]},{"label":["var3"],"name":[3],"type":["int"],"align":["right"]}],"data":[{"1":"3","2":"NA","3":"12","_rn_":"4"},{"1":"2","2":"9","3":"15","_rn_":"2"},{"1":"1","2":"6","3":"13","_rn_":"5"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[3]},"pages":{}}}
@@ -237,19 +239,442 @@ df[(df$var1 &lt;= 3 &amp; df$var3&gt;11),]</code></pre>
 <pre class="r"><code>## use which to return the indices that satisfy a certain condition
 df[which(df$var2 &gt; 8),]</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MywibnJvdyI6MX0sInJkZiI6Ikg0c0lBQUFBQUFBQUJsMVBRUTZDTUJCY1d0QkFvcGo0RGtqRWszZGY0SWxyQlZRaXRxUVU5ZlhvRm1pc3ZiU3owODdNenVtWVoxRWVBUUFCU2drUWl0QW5lSGpnUTZqdk53RGRJdEF2cS9GQmYvN2gwTUt4SXc0NGUxUWRnczFvTUpIK2s4bWRoVE1MN3gyRFVJcFhha3lzOVArVW9tR2RTVEZrVkRMRjBvdEVMVTZESTFtS1Z0V0NvNGpvYm9FajlxUkR4RDNYVzVSSmNldjVQVG5vZ0hrYno5ck14blNLSkovWktwaXRGaFcvMXJ3eXV6ZnNYRFh6c01hMlk5bTBsVFZYcGdteVhhcUVZdVpmVklqR01HTTNHTDR4Q3ZiQnlRRUFBQT09In0= -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MywibnJvdyI6MX0sInJkZiI6Ikg0c0lBQUFBQUFBQUJsMVBRUTZDTUJCY1d0QkFvcGo0RGtoRW4rQUxQSEd0Z0VyRWxwU2l2aDdkQW8yMWwzWjIycG5aT1IzekxNb2pBQ0JBS1FGQ0Vmb0VEdzk4Q1BYOUJxQmJCUHBsTlQ3b3p6OGNXamgyeEFGbmo2cERzQmtOSnRKL01ybXpjR2JodldNUVN2RktqWW1WL3A5U05Ld3pLWWFNU3FaWWVwR294V2x3SkV2UnFscHdGQkhkTFhERW5uU0l1T2Q2aXpJcGJqMi9Kd2NkTUcvaldadlptRTZSNUROYkJiUFZvdUxYbWxkbTk0YWRxMlllMXRoMkxKdTJzdWJLTkVHMlM1VlF6UHlMQ3RFWVp1d0d3eGRJdTdKWXlRRUFBQT09In0= -->
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["var1"],"name":[1],"type":["int"],"align":["right"]},{"label":["var2"],"name":[2],"type":["int"],"align":["right"]},{"label":["var3"],"name":[3],"type":["int"],"align":["right"]}],"data":[{"1":"2","2":"9","3":"15","_rn_":"2"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
   </script>
 </div>
 <!-- rnb-frame-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgc29ydCB2YXJpYWJsZXMgaW4gYXNjZW5kaW5nIG9yZGVyIGJ5IGRlZmF1bHQgXG5zb3J0KGRmJHZhcjEpXG5gYGAifQ== -->
+<pre class="r"><code>## sort variables in ascending order by default 
+sort(df$var1)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDEgMiAzIDQgNVxuIn0= -->
+<pre><code>[1] 1 2 3 4 5</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgZm9yIGRlc2NlbmRpbmcgb3JkZXJcbnNvcnQoZGYkdmFyMSwgZGVjcmVhc2luZyA9IFRSVUUpXG5gYGAifQ== -->
+<pre class="r"><code>## for descending order
+sort(df$var1, decreasing = TRUE)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDUgNCAzIDIgMVxuIn0= -->
+<pre><code>[1] 5 4 3 2 1</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgaW5jYXNlIG9mIHNvcnRpbmcgZGF0YSB3aXRoIG1pc3NpbmcgdmFyaWFibGVzLCB3ZSBjYW4gYWRkIHRoZW0gYXQgdGhlIGVuZFxuc29ydChkZiR2YXIyLCBuYS5sYXN0ID0gVFJVRSlcbmBgYCJ9 -->
+<pre class="r"><code>## incase of sorting data with missing variables, we can add them at the end
+sort(df$var2, na.last = TRUE)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdICA2ICA3ICA5IE5BIE5BXG4ifQ== -->
+<pre><code>[1]  6  7  9 NA NA</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgcmUtb3JkZXJpbmcgdGhlIHJvd3Mgb2YgdGhlIGRhdGFmcmFtZSB3cnQgc29tZSB2YXJpYWJsZS5cbmRmW29yZGVyKGRmJHZhcjEpLF1cbmBgYCJ9 -->
+<pre class="r"><code>## re-ordering the rows of the dataframe wrt some variable.
+df[order(df$var1),]</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MywibnJvdyI6NX0sInJkZiI6Ikg0c0lBQUFBQUFBQUJsMVFVVzdDTUF4MTBoVFV3bUJTejBFbDJJN0FDZmJGYjFiS1ZxMGtLQTBibjV5YzRiUzJGQ1hTUzV6bitEMDdIL3ZEcmp5VUFDQWh5eVRJREVNbGNST2dvQWpuRFNDck1BaVpGMFErSmtQQnhDbmlPRGRERkhmY0FuRE5vMXc0MTRnbFlvVllKR2E1MGVkMndPQjFGSjlJOWF2ZE5vcDNVZnlXQ0JUTy90VXN3cTQ1ZGF1b1k1RzZOcjBlMkpYSjhxaTlyazhPdGZEMlNFcm05dUk3YTdCSVZ1UVFGd3VYRU91ckNWMGROODMzMWZ4czNvTUIvYU9nVGtYMFIyTHFORmpLZjVMS1NXcldtcS9PdE54N3J6L2JuaTRybkg0Y3ZyNjR6bmllQk5taDl0WnJmbGMydG1kbW5BMGVUNHZhRy84SkFnQUEifQ== -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["var1"],"name":[1],"type":["int"],"align":["right"]},{"label":["var2"],"name":[2],"type":["int"],"align":["right"]},{"label":["var3"],"name":[3],"type":["int"],"align":["right"]}],"data":[{"1":"1","2":"6","3":"13","_rn_":"5"},{"1":"2","2":"9","3":"15","_rn_":"2"},{"1":"3","2":"NA","3":"12","_rn_":"4"},{"1":"4","2":"NA","3":"14","_rn_":"3"},{"1":"5","2":"7","3":"11","_rn_":"1"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[5]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgd2UgY2FuIHNvcnQgdXNpbmcgMiB2YXJpYWJsZXMsIHNvIHRoYXQgaWYgdGhlcmUgaXMgYSB0aWUgdXNpbmcgdGhlIDFzdCB2YXJpYWJsZSwgb3JkZXIgd2l0aCB0aGUgc2Vjb25kIG9uZVxuZGZbb3JkZXIoZGYkdmFyMSxkZiR2YXIzKSxdXG5gYGAifQ== -->
+<pre class="r"><code>## we can sort using 2 variables, so that if there is a tie using the 1st variable, order with the second one
+df[order(df$var1,df$var3),]</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MywibnJvdyI6NX0sInJkZiI6Ikg0c0lBQUFBQUFBQUJsMVFVVzdDTUF4MTBoVFV3bUJTejBFbDJJN0FDZmJGYjFiS1ZxMGtLQTBibjV5YzRiUzJGQ1hTUzV6bitEMDdIL3ZEcmp5VUFDQWh5eVRJREVNbGNST2dvQWpuRFNDck1BaVpGMFErSmtQQnhDbmlPRGRERkhmY0FuRE5vMXc0MTRnbFlvVllKR2E1MGVkMndPQjFGSjlJOWF2ZE5vcDNVZnlXQ0JUTy90VXN3cTQ1ZGF1b1k1RzZOcjBlMkpYSjhxaTlyazhPdGZEMlNFcm05dUk3YTdCSVZ1UVFGd3VYRU91ckNWMGROODMzMWZ4czNvTUIvYU9nVGtYMFIyTHFORmpLZjVMS1NXcldtcS9PdE54N3J6L2JuaTRybkg0Y3ZyNjR6bmllQk5taDl0WnJmbGMydG1kbW5BMGVUNHZhRy84SkFnQUEifQ== -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["var1"],"name":[1],"type":["int"],"align":["right"]},{"label":["var2"],"name":[2],"type":["int"],"align":["right"]},{"label":["var3"],"name":[3],"type":["int"],"align":["right"]}],"data":[{"1":"1","2":"6","3":"13","_rn_":"5"},{"1":"2","2":"9","3":"15","_rn_":"2"},{"1":"3","2":"NA","3":"12","_rn_":"4"},{"1":"4","2":"NA","3":"14","_rn_":"3"},{"1":"5","2":"7","3":"11","_rn_":"1"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[5]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgb3JkZXJpbmcgd2l0aCBwbHlyIHBhY2thZ2VcbmxpYnJhcnkocGx5cilcbmFycmFuZ2UoZGYsIHZhcjEpXG5gYGAifQ== -->
+<pre class="r"><code>## ordering with plyr package
+library(plyr)
+arrange(df, var1)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MywibnJvdyI6NX0sInJkZiI6Ikg0c0lBQUFBQUFBQUJsMVEydzZDTUF3dEF5VGdOZUU3SVBIeUNYNkJUNzVPUkNYaVpzYThQUHJsYWd0YnNvemtiR2VudEtmdGJydGZaZnNNQUJpRUlRTVdJbzBZSGdGRWtOTDlCZ2h6SkJTWkl1SStTQW1ERmhuTnhrYUk5SU1IQWIvRWlkRTlSMHdRTThUWU00c0Z2OVVka2tWZmZCQ2pKMWRMaDY4Y3Z2WUtwRXErU2x1RTNKanBJdmFkcXBaMzFzbUsyWkZyWHA0VTV1UHI2NlVrOHE0YktUQ0o1V1llTnpsUW5qQi9DT3JrV0ZTWGg3Z1dHekl3dXdQVFhlRHNKUmoyU1pic1owckZwdFNvRnVkRzFMYjNsaC9xMWp4bU9IRS9jSGxYamRCMkVsUzdVa3ZON1g5WkpWdXI5TFBCOXc4RFVRdmsvUUVBQUE9PSJ9 -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["var1"],"name":[1],"type":["int"],"align":["right"]},{"label":["var2"],"name":[2],"type":["int"],"align":["right"]},{"label":["var3"],"name":[3],"type":["int"],"align":["right"]}],"data":[{"1":"1","2":"6","3":"13"},{"1":"2","2":"9","3":"15"},{"1":"3","2":"NA","3":"12"},{"1":"4","2":"NA","3":"14"},{"1":"5","2":"7","3":"11"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[5]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="add-rows-and-columns" class="section level2">
+<h2>Add rows and columns</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgY3JlYXRlIHRoZSBkYXRhZnJhbWVcbmRmIDwtIGRhdGEuZnJhbWUoXCJ2YXIxXCIgPSBzYW1wbGUoMTo1KSwgXCJ2YXIyXCIgPSBzYW1wbGUoNjoxMCksIFwidmFyM1wiID0gc2FtcGxlKDExOjE1KSlcbmRmXG5gYGAifQ== -->
+<pre class="r"><code>## create the dataframe
+df &lt;- data.frame(&quot;var1&quot; = sample(1:5), &quot;var2&quot; = sample(6:10), &quot;var3&quot; = sample(11:15))
+df</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MywibnJvdyI6NX0sInJkZiI6Ikg0c0lBQUFBQUFBQUJsMVFTdzZDTUJBZENvamlCeFBPSVltNmN1OEpYTG10aUVyRTFwU2lMajA1T2kxdDByVEphNmR2WnQ1OER2dmpKajJtQUVBZ0RBbVFFTTJJNEJWQUJCUDFmZ0RDSEEzbG1TTmlGYUVEQm80WXp2b1NoQkpVeVNQRTJQRk5FVE5FWnJpRlZ5eG05RkcxYUN5MStFQkdMeXJXanIxeDdLMG5NQkg4WFZnUlZZRjhRWi9ZcjFRMnRMV1ZMSm1lcWFURlJXQSsvbm92SmVGUFdYT0dTU1EzODdqSmdmQ0lyR09xay9PcXZIWHN2dHFadlFSRFE3cTd3Tm1kMmFjcVNYNUdLalpTbzRwZGExYlozaHQ2cWhyeldlREVldURpS1dvbTdTVEl0b1hra3RxNHRPU05aZlJzMFA4QnB4QzMrUDBCQUFBPSJ9 -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["var1"],"name":[1],"type":["int"],"align":["right"]},{"label":["var2"],"name":[2],"type":["int"],"align":["right"]},{"label":["var3"],"name":[3],"type":["int"],"align":["right"]}],"data":[{"1":"4","2":"7","3":"11"},{"1":"1","2":"10","3":"12"},{"1":"3","2":"9","3":"15"},{"1":"2","2":"6","3":"13"},{"1":"5","2":"8","3":"14"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[5]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgYWRkIHZhcjQgY29udGFpbnMgc29tZSByYW5kb20gdmFsdWVzXG5kZiR2YXI0IDwtIHJub3JtKDUpXG5kZlxuYGBgIn0= -->
+<pre class="r"><code>## add var4 contains some random values
+df$var4 &lt;- rnorm(5)
+df</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6NCwibnJvdyI6NX0sInJkZiI6Ikg0c0lBQUFBQUFBQUJndHlpVERpaXVCaVlHQmdZbUJtWm1KZ1lnWXlXWmlBQkNNREN3TW5pSzVnWUdBV0Jva0NNUzhRczBMWmpFRE1ETllJRVlQSnNRTXh5RUNRWmpZZzVrQ1M0d1ppSGlEbWg0cnhRVEhyL29PK0habWR5OWZhZjdwWmVFRHh2OWorSHdudFV5N2UvMi8vbUhGMmZsN29IUHVyL3Z4Q2o5TkMwUnpIbXBlWW0xb01aQWlBSFFVUlpDbExMREpFWWhzaHNZMlIyQ1pvaG5FVzVaZnJ3UXdFdVk2cGdRRU1XTkZ0VGM1SkxJYlpDaFBrU2trc1NkUkxLd0xxQi9MK29XbGh6eThveWN6UEEycGlFb2FHQmJKbXhpSTBBZjdTUEpCTFVuU1RNMHJ6c25VdG9XSEtDSEVRMkhXTVNPSE9DSWtUa0pWTS82RkdzVUtOWWt2TlM4L01TNFc1UFNjeEtUVUh5dUVEK2hqc1liMkNvc3k4RXBoUGdLTEZlaVg1Sllrd2RWekorVGt3RWJEZkdQNEJBQnVELzVVNUFnQUEifQ== -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["var1"],"name":[1],"type":["int"],"align":["right"]},{"label":["var2"],"name":[2],"type":["int"],"align":["right"]},{"label":["var3"],"name":[3],"type":["int"],"align":["right"]},{"label":["var4"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"4","2":"7","3":"11","4":"-0.1351786"},{"1":"1","2":"10","3":"12","4":"1.1780870"},{"1":"3","2":"9","3":"15","4":"-1.5235668"},{"1":"2","2":"6","3":"13","4":"0.5939462"},{"1":"5","2":"8","3":"14","4":"0.3329504"}],"options":{"columns":{"min":{},"max":[10],"total":[4]},"rows":{"min":[10],"max":[10],"total":[5]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgYW5vdGhlciB3YXkgdG8gZG8gdGhpcyBpcyB1c2luZyBjb2x1bW4gYmluZCBmdW5jdGlvbiBjYmluZC4gSXQgcGFzdGVzIHRoZSBuZXcgY29sdW1uIGludG8gdGhlIHJpZ2h0IHNpZGUgb2YgdGhlIGRmLiBJZiB5b3Ugc3dpdGNoIG9yZGVycyB0aGUgbmV3IGNvbHVtbiB3aWxsIGJlIGFkZGVkIGludG8gdGhlIGxlZnQgc2lkZS5cbmRmMiA8LSBjYmluZChkZixybm9ybSg1KSlcbmRmMlxuYGBgIn0= -->
+<pre class="r"><code>## another way to do this is using column bind function cbind. It pastes the new column into the right side of the df. If you switch orders the new column will be added into the left side.
+df2 &lt;- cbind(df,rnorm(5))
+df2</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6NSwibnJvdyI6NX0sInJkZiI6Ikg0c0lBQUFBQUFBQUJndHlpVERpaXVCaVlHQmdZbUJtWm1KZ1lnWXlXWmlBQkNNREN3TW5pSzVnWUdBV0JqSllnWmdYU3JPQUZRQWx3QnBSNWRpQkdHUWdTRE1iRUhNZ3lYRURNUThRODBQRitLQ1lkZjlCMzQ3TXp1VnI3VC9kTER5ZytGOXMvNCtFOWlrWDcvKzNmOHc0T3o4dmRJNzlWWDkrb2NkcG9URDE5aCtaU241T1A2UysvM0w1L2h2LzV1amJYMStYSEg5LzB3LzdpeEtxYmFmMnRlOS9HQlAwL2FMWU16VFBzT1lsNXFZV0F4a0NZQWRCQkZuS0Vvc01rZGhHU0d4akpMWUpsTTFSbEpkZmxLdGhxb2xtT0dkUmZya2V6QUtRNzVnYUdNQ0FGZDBWeVRtSnhUQlh3QVM1VWhKTEV2WFNpb0Q2Z2J4L2FGclk4d3RLTXZQemdKcVlZSEdCckpteENFMkF2elFQNUpJVTNlU00wcnhzWFV0b25EQkNIQVIySFNOU3ZERWlYTW4wSHkxNDJGTHowalB6VW1GdXowbE1TczJCY3ZpQVBnWjdXSytnS0RPdkJPWVRvR2l4WGtsK1NTSk1IVmR5Zmc1TUJPdzNobjhBb2hoUlEza0NBQUE9In0= -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["var1"],"name":[1],"type":["int"],"align":["right"]},{"label":["var2"],"name":[2],"type":["int"],"align":["right"]},{"label":["var3"],"name":[3],"type":["int"],"align":["right"]},{"label":["var4"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["rnorm(5)"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"4","2":"7","3":"11","4":"-0.1351786","5":"1.0630998"},{"1":"1","2":"10","3":"12","4":"1.1780870","5":"-0.3041839"},{"1":"3","2":"9","3":"15","4":"-1.5235668","5":"0.3700188"},{"1":"2","2":"6","3":"13","4":"0.5939462","5":"0.2670988"},{"1":"5","2":"8","3":"14","4":"0.3329504","5":"-0.5425200"}],"options":{"columns":{"min":{},"max":[10],"total":[5]},"rows":{"min":[10],"max":[10],"total":[5]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgYWRkIHJvd3MgdXNpbmcgcm93IGJpbmQgZnVuY3Rpb24gcmJpbmQuIE9yZGVyIG1hdHRlcnMganVzdCBsaWtlIGNiaW5kLlxuZGYzIDwtIHJiaW5kKGRmLHJlcCgxMDAsNCkpXG5kZjNcbmBgYCJ9 -->
+<pre class="r"><code>## add rows using row bind function rbind. Order matters just like cbind.
+df3 &lt;- rbind(df,rep(100,4))
+df3</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6NCwibnJvdyI6Nn0sInJkZiI6Ikg0c0lBQUFBQUFBQUJndHlpVERpaXVCaVlHQmdZbUJtWm1KZ1lnWXlXWmlBQkNNREN3TW5pSzVnWUdBV0Jva0NNUjhRc3prSU1JQ0IvUWNJN2NBQnBSbWd0QWlVam1TQUFZZytHYWk0Q3BSV2d0SVNVRm9CaHo0MXFMZ0dsTmFEMGxwUVdnZTd2djBIZlRzeU81ZXZ0Zjkwcy9DQTRuK3gvVDhTMnFkY3ZQL2YvakhqN1B5ODBEbjJWLzM1aFI2bmhTTDBvWGljTlM4eE43VVl5QkFBZXg0aXlGS1dXR1NJeERaQ1loc2pzVTNRRE9Nc3lpL1hneG5JQ3dydUJvaVZiT2kySnVja0ZzTnNoUWx5cFNTV0pPcWxGUUgxQTNuLzBMU3c1eGVVWk9ibkFUVXhnZUtKRlUwell4R2FBSDlwSHNnbEtickpHYVY1MmJxV0lBdkEwaERNQzZYWmtOZ3NFQ3VaL2tPTllvVWF4WmFhbDU2Wmx3cHplMDVpVW1vT2xNTUg5REhZdzNvRlJabDVKVENmQUVXTDlVcnlTeEpoNnJpUzgzTmdJbUMvTWZ3REFENjdCM2lWQWdBQSJ9 -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["var1"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["var2"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["var3"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["var4"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"4","2":"7","3":"11","4":"-0.1351786","_rn_":"1"},{"1":"1","2":"10","3":"12","4":"1.1780870","_rn_":"2"},{"1":"3","2":"9","3":"15","4":"-1.5235668","_rn_":"3"},{"1":"2","2":"6","3":"13","4":"0.5939462","_rn_":"4"},{"1":"5","2":"8","3":"14","4":"0.3329504","_rn_":"5"},{"1":"100","2":"100","3":"100","4":"100.0000000","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10],"total":[4]},"rows":{"min":[10],"max":[10],"total":[6]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Another way to do this is using column bind function cbind. It pastes the new column into the right side of the df. If you switch orders the new column will be added into the left side.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGYyIDwtIGNiaW5kKGRmLHJub3JtKDUpKVxuZGYyXG5cbiMjIGFkZCByb3dzIHVzaW5nIHJvdyBiaW5kIGZ1bmN0aW9uIHJiaW5kLiBPcmRlciBtYXR0ZXJzIGp1c3QgbGlrZSBjYmluZC5cbmRmMyA8LSByYmluZChkZixyZXAoMTAwLDQpKVxuZGYzXG5gYGAifQ== -->
+<pre class="r"><code>df2 &lt;- cbind(df,rnorm(5))
+df2
+
+## add rows using row bind function rbind. Order matters just like cbind.
+df3 &lt;- rbind(df,rep(100,4))
+df3</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+</div>
+<div id="summarizing-data" class="section level1">
+<h1>Summarizing Data</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucmVzdGF1cmFudHMgPC0gcmVhZC5jc3YoXCJSZXN0YXVyYW50cy5jc3ZcIilcblxuIyMgU2hvdyB0aGUgZmlyc3QgMyByb3dzLiBXaXRob3V0IHNwZWNpZnlpbmcgbiwgaXQgd2lsbCBnaXZlIHRoZSB0b3AgNiByb3dzXG5oZWFkKHJlc3RhdXJhbnRzLCBuPTMpXG5cbiMjIHNob3cgdGhlIGxhc3QgMyByb3dzLiBXaXRob3V0IHNwZWNpZnlpbmcgbiwgaXQgd2lsbCBnaXZlIHRoZSBsYXN0IDYgcm93c1xudGFpbChyZXN0YXVyYW50cywgbj0zKVxuXG4jIyBtYWtlIHN1bW1hcnkuIEl0IGdpdmVzIGhpc3RvZ3JhbSBmb3Igc3RyaW5nIGNvbHVtbnMgYW5kIHF1YW50aWxlcyBmb3IgbnVtZXJpYyBjb2x1bW5zXG5zdW1tYXJ5KHJlc3RhdXJhbnRzKVxuXG4jIyBtb3JlIGluIGRlcHRoIGRldGFpbHNcbnN0cihyZXN0YXVyYW50cylcblxuIyMgUXVhbnRpbGVzXG5xdWFudGlsZShyZXN0YXVyYW50cyRjb3VuY2lsRGlzdHJpY3QsIG5hLnJtID0gVClcblxuIyMgcGFzc2luZyBwcm9iYWJpbGl0aWVzIHRvIHF1YW50aWxlXG5xdWFudGlsZShyZXN0YXVyYW50cyRjb3VuY2lsRGlzdHJpY3QsIG5hLnJtID0gVCwgcHJvYnMgPSBjKDAuNSwwLjcsMC45KSlcbmBgYCJ9 -->
+<pre class="r"><code>restaurants &lt;- read.csv(&quot;Restaurants.csv&quot;)
+
+## Show the first 3 rows. Without specifying n, it will give the top 6 rows
+head(restaurants, n=3)
+
+## show the last 3 rows. Without specifying n, it will give the last 6 rows
+tail(restaurants, n=3)
+
+## make summary. It gives histogram for string columns and quantiles for numeric columns
+summary(restaurants)
+
+## more in depth details
+str(restaurants)
+
+## Quantiles
+quantile(restaurants$councilDistrict, na.rm = T)
+
+## passing probabilities to quantile
+quantile(restaurants$councilDistrict, na.rm = T, probs = c(0.5,0.7,0.9))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<div id="tables" class="section level2">
+<h2>tables</h2>
+<p><code>table()</code> makes a histogram for the input observations. <code>useNA = &quot;ifany&quot;</code> will add NA column in the output contains the number of missing values. <code>table()</code> can also take 2 variables to construct a 2D histogram.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgY291bnRpbmcgdGhlIG51bWJlciBvZiBvY2N1cmVuY2UgZm9yIGVhaCB6aXBjb2RlXG50YWJsZShyZXN0YXVyYW50cyR6aXBDb2RlLCB1c2VOQSA9IFwiaWZhbnlcIilcbmBgYCJ9 -->
+<pre class="r"><code>## counting the number of occurence for eah zipcode
+table(restaurants$zipCode, useNA = &quot;ifany&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG4tMjEyMjYgIDIxMjAxICAyMTIwMiAgMjEyMDUgIDIxMjA2ICAyMTIwNyAgMjEyMDggIDIxMjA5ICAyMTIxMCAgMjEyMTEgIDIxMjEyIFxuICAgICAxICAgIDEzNiAgICAyMDEgICAgIDI3ICAgICAzMCAgICAgIDQgICAgICAxICAgICAgOCAgICAgMjMgICAgIDQxICAgICAyOCBcbiAyMTIxMyAgMjEyMTQgIDIxMjE1ICAyMTIxNiAgMjEyMTcgIDIxMjE4ICAyMTIyMCAgMjEyMjIgIDIxMjIzICAyMTIyNCAgMjEyMjUgXG4gICAgMzEgICAgIDE3ICAgICA1NCAgICAgMTAgICAgIDMyICAgICA2OSAgICAgIDEgICAgICA3ICAgICA1NiAgICAxOTkgICAgIDE5IFxuIDIxMjI2ICAyMTIyNyAgMjEyMjkgIDIxMjMwICAyMTIzMSAgMjEyMzQgIDIxMjM3ICAyMTIzOSAgMjEyNTEgIDIxMjg3IFxuICAgIDE4ICAgICAgNCAgICAgMTMgICAgMTU2ICAgIDEyNyAgICAgIDcgICAgICAxICAgICAgMyAgICAgIDIgICAgICAxIFxuIn0= -->
+<pre><code>
+-21226  21201  21202  21205  21206  21207  21208  21209  21210  21211  21212 
+     1    136    201     27     30      4      1      8     23     41     28 
+ 21213  21214  21215  21216  21217  21218  21220  21222  21223  21224  21225 
+    31     17     54     10     32     69      1      7     56    199     19 
+ 21226  21227  21229  21230  21231  21234  21237  21239  21251  21287 
+    18      4     13    156    127      7      1      3      2      1 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgMkQgaGlzdG9ncmFtXG50YWJsZShyZXN0YXVyYW50cyRjb3VuY2lsRGlzdHJpY3QsIHJlc3RhdXJhbnRzJHppcENvZGUpXG5gYGAifQ== -->
+<pre class="r"><code>## 2D histogram
+table(restaurants$councilDistrict, restaurants$zipCode)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgIFxuICAgICAtMjEyMjYgMjEyMDEgMjEyMDIgMjEyMDUgMjEyMDYgMjEyMDcgMjEyMDggMjEyMDkgMjEyMTAgMjEyMTEgMjEyMTIgMjEyMTNcbiAgMSAgICAgICAwICAgICAwICAgIDM3ICAgICAwICAgICAwICAgICAwICAgICAwICAgICAwICAgICAwICAgICAwICAgICAwICAgICAyXG4gIDIgICAgICAgMCAgICAgMCAgICAgMCAgICAgMyAgICAyNyAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMFxuICAzICAgICAgIDAgICAgIDAgICAgIDAgICAgIDAgICAgIDAgICAgIDAgICAgIDAgICAgIDAgICAgIDAgICAgIDAgICAgIDAgICAgIDJcbiAgNCAgICAgICAwICAgICAwICAgICAwICAgICAwICAgICAwICAgICAwICAgICAwICAgICAwICAgICAwICAgICAwICAgIDI3ICAgICAwXG4gIDUgICAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMyAgICAgMCAgICAgNiAgICAgMCAgICAgMCAgICAgMCAgICAgMFxuICA2ICAgICAgIDAgICAgIDAgICAgIDAgICAgIDAgICAgIDAgICAgIDAgICAgIDAgICAgIDEgICAgMTkgICAgIDAgICAgIDAgICAgIDBcbiAgNyAgICAgICAwICAgICAwICAgICAwICAgICAwICAgICAwICAgICAwICAgICAwICAgICAxICAgICAwICAgIDI3ICAgICAwICAgICAwXG4gIDggICAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMSAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMFxuICA5ICAgICAgIDAgICAgIDEgICAgIDAgICAgIDAgICAgIDAgICAgIDAgICAgIDAgICAgIDAgICAgIDAgICAgIDAgICAgIDAgICAgIDBcbiAgMTAgICAgICAxICAgICAwICAgICAxICAgICAwICAgICAwICAgICAwICAgICAwICAgICAwICAgICAwICAgICAwICAgICAwICAgICAwXG4gIDExICAgICAgMCAgIDExNSAgIDEzOSAgICAgMCAgICAgMCAgICAgMCAgICAgMSAgICAgMCAgICAgMCAgICAgMCAgICAgMSAgICAgMFxuICAxMiAgICAgIDAgICAgMjAgICAgMjQgICAgIDQgICAgIDAgICAgIDAgICAgIDAgICAgIDAgICAgIDAgICAgIDAgICAgIDAgICAgMTNcbiAgMTMgICAgICAwICAgICAwICAgICAwICAgIDIwICAgICAzICAgICAwICAgICAwICAgICAwICAgICAwICAgICAwICAgICAwICAgIDEzXG4gIDE0ICAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgNCAgICAxNCAgICAgMCAgICAgMVxuICAgIFxuICAgICAyMTIxNCAyMTIxNSAyMTIxNiAyMTIxNyAyMTIxOCAyMTIyMCAyMTIyMiAyMTIyMyAyMTIyNCAyMTIyNSAyMTIyNiAyMTIyNyAyMTIyOVxuICAxICAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgNyAgICAgMCAgIDE0MCAgICAgMSAgICAgMCAgICAgMCAgICAgMFxuICAyICAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICA1NCAgICAgMCAgICAgMCAgICAgMCAgICAgMFxuICAzICAgICAxNyAgICAgMCAgICAgMCAgICAgMCAgICAgMyAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMSAgICAgMFxuICA0ICAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMFxuICA1ICAgICAgMCAgICAzMSAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMFxuICA2ICAgICAgMCAgICAxNSAgICAgMSAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMFxuICA3ICAgICAgMCAgICAgNiAgICAgNyAgICAxNSAgICAgNiAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMFxuICA4ICAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMiAgICAgMCAgICAgMCAgICAgMCAgICAgMiAgICAxM1xuICA5ICAgICAgMCAgICAgMCAgICAgMiAgICAgOCAgICAgMCAgICAgMCAgICAgMCAgICA1MyAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMFxuICAxMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMSAgICAgMCAgICAgMCAgICAgMCAgICAxOCAgICAxOCAgICAgMCAgICAgMFxuICAxMSAgICAgMCAgICAgMCAgICAgMCAgICAgOSAgICAgMCAgICAgMCAgICAgMCAgICAgMSAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMFxuICAxMiAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAyNiAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMFxuICAxMyAgICAgMCAgICAgMSAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgNSAgICAgMCAgICAgMCAgICAgMSAgICAgMFxuICAxNCAgICAgMCAgICAgMSAgICAgMCAgICAgMCAgICAzNCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMFxuICAgIFxuICAgICAyMTIzMCAyMTIzMSAyMTIzNCAyMTIzNyAyMTIzOSAyMTI1MSAyMTI4N1xuICAxICAgICAgMSAgIDEyNCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMFxuICAyICAgICAgMCAgICAgMCAgICAgMCAgICAgMSAgICAgMCAgICAgMCAgICAgMFxuICAzICAgICAgMCAgICAgMCAgICAgNyAgICAgMCAgICAgMCAgICAgMiAgICAgMFxuICA0ICAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMyAgICAgMCAgICAgMFxuICA1ICAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMFxuICA2ICAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMFxuICA3ICAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMFxuICA4ICAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMFxuICA5ICAgICAxMSAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMFxuICAxMCAgIDEzMyAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMFxuICAxMSAgICAxMSAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMFxuICAxMiAgICAgMCAgICAgMiAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMFxuICAxMyAgICAgMCAgICAgMSAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMVxuICAxNCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMCAgICAgMFxuIn0= -->
+<pre><code>    
+     -21226 21201 21202 21205 21206 21207 21208 21209 21210 21211 21212 21213
+  1       0     0    37     0     0     0     0     0     0     0     0     2
+  2       0     0     0     3    27     0     0     0     0     0     0     0
+  3       0     0     0     0     0     0     0     0     0     0     0     2
+  4       0     0     0     0     0     0     0     0     0     0    27     0
+  5       0     0     0     0     0     3     0     6     0     0     0     0
+  6       0     0     0     0     0     0     0     1    19     0     0     0
+  7       0     0     0     0     0     0     0     1     0    27     0     0
+  8       0     0     0     0     0     1     0     0     0     0     0     0
+  9       0     1     0     0     0     0     0     0     0     0     0     0
+  10      1     0     1     0     0     0     0     0     0     0     0     0
+  11      0   115   139     0     0     0     1     0     0     0     1     0
+  12      0    20    24     4     0     0     0     0     0     0     0    13
+  13      0     0     0    20     3     0     0     0     0     0     0    13
+  14      0     0     0     0     0     0     0     0     4    14     0     1
+    
+     21214 21215 21216 21217 21218 21220 21222 21223 21224 21225 21226 21227 21229
+  1      0     0     0     0     0     0     7     0   140     1     0     0     0
+  2      0     0     0     0     0     0     0     0    54     0     0     0     0
+  3     17     0     0     0     3     0     0     0     0     0     0     1     0
+  4      0     0     0     0     0     0     0     0     0     0     0     0     0
+  5      0    31     0     0     0     0     0     0     0     0     0     0     0
+  6      0    15     1     0     0     0     0     0     0     0     0     0     0
+  7      0     6     7    15     6     0     0     0     0     0     0     0     0
+  8      0     0     0     0     0     0     0     2     0     0     0     2    13
+  9      0     0     2     8     0     0     0    53     0     0     0     0     0
+  10     0     0     0     0     0     1     0     0     0    18    18     0     0
+  11     0     0     0     9     0     0     0     1     0     0     0     0     0
+  12     0     0     0     0    26     0     0     0     0     0     0     0     0
+  13     0     1     0     0     0     0     0     0     5     0     0     1     0
+  14     0     1     0     0    34     0     0     0     0     0     0     0     0
+    
+     21230 21231 21234 21237 21239 21251 21287
+  1      1   124     0     0     0     0     0
+  2      0     0     0     1     0     0     0
+  3      0     0     7     0     0     2     0
+  4      0     0     0     0     3     0     0
+  5      0     0     0     0     0     0     0
+  6      0     0     0     0     0     0     0
+  7      0     0     0     0     0     0     0
+  8      0     0     0     0     0     0     0
+  9     11     0     0     0     0     0     0
+  10   133     0     0     0     0     0     0
+  11    11     0     0     0     0     0     0
+  12     0     2     0     0     0     0     0
+  13     0     1     0     0     0     0     1
+  14     0     0     0     0     0     0     0</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="check-for-missing-values" class="section level2">
+<h2>Check for missing values</h2>
+<p>Use <code>is.na</code> to check if the value in na or not. it gives <code>True</code> or <code>False</code> output with the same size as the input.</p>
+<p>Note that in <code>R</code>, <code>True = 1</code>, and <code>false = 0</code>, so we can sum the output of <code>is.na()</code> to get the number of <code>NA</code> values.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgRXhhbXBsZVxueCA8LSBjKDEsNSxOQSwgMTAsIE5BKVxuaXMubmEoeCkgIyB3ZSBleHBlY3QgdGhlIG91dHB1dCB0byBiZSBGLEYsVCxGLFRcbmBgYCJ9 -->
+<pre class="r"><code>## Example
+x &lt;- c(1,5,NA, 10, NA)
+is.na(x) # we expect the output to be F,F,T,F,T</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIEZBTFNFIEZBTFNFICBUUlVFIEZBTFNFICBUUlVFXG4ifQ== -->
+<pre><code>[1] FALSE FALSE  TRUE FALSE  TRUE</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgbnVtYmVyIG9mIE5Bc1xuc3VtKGlzLm5hKHgpKVxuYGBgIn0= -->
+<pre class="r"><code>## number of NAs
+sum(is.na(x))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDJcbiJ9 -->
+<pre><code>[1] 2</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>If we want to check if there is any <code>NA</code> in the input data. we can use <code>any()</code> that gives <code>True</code> if any of its inputs is <code>True</code> and <code>False</code> otherwise.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYW55KGlzLm5hKHgpKVxuYGBgIn0= -->
+<pre class="r"><code>any(is.na(x))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFRSVUVcbiJ9 -->
+<pre><code>[1] TRUE</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>To check if every single value satisfies a certain condition, use <code>all()</code></p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueSA8LSBjKDUsNiw3LDgsOSwxMClcbiMjIENoZWNrIGlmIGFsbCB2YWx1ZXMgaW4geSBpcyBncmVhdGVyIHRoYW4gMFxuYWxsKHk+MClcbmBgYCJ9 -->
+<pre class="r"><code>y &lt;- c(5,6,7,8,9,10)
+## Check if all values in y is greater than 0
+all(y&gt;0)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFRSVUVcbiJ9 -->
+<pre><code>[1] TRUE</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="sum-across-rows-and-columns" class="section level2">
+<h2>Sum across rows and columns</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgZ2V0IHRoZSBudW1iZXIgb2YgTkFzIGluIGVhY2ggY29sdW1uXG5jb2xTdW1zKGlzLm5hKHJlc3RhdXJhbnRzKSlcbmBgYCJ9 -->
+<pre class="r"><code>## get the number of NAs in each column
+colSums(is.na(restaurants))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICAgICAgICBuYW1lICAgICAgICAgemlwQ29kZSAgICBuZWlnaGJvcmhvb2QgY291bmNpbERpc3RyaWN0ICBwb2xpY2VEaXN0cmljdCBcbiAgICAgICAgICAgICAgMCAgICAgICAgICAgICAgIDAgICAgICAgICAgICAgICAwICAgICAgICAgICAgICAgMCAgICAgICAgICAgICAgIDAgXG4gICAgIExvY2F0aW9uLjEgXG4gICAgICAgICAgICAgIDAgXG4ifQ== -->
+<pre><code>           name         zipCode    neighborhood councilDistrict  policeDistrict 
+              0               0               0               0               0 
+     Location.1 
+              0 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgbWFrZSBzdXJlIHRoZXJlIGlzIG5vdCBtaXNzaW5nIGRhdGFcbmFsbChjb2xTdW1zKGlzLm5hKHJlc3RhdXJhbnRzKSkgPT0gMClcbmBgYCJ9 -->
+<pre class="r"><code>## make sure there is not missing data
+all(colSums(is.na(restaurants)) == 0)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFRSVUVcbiJ9 -->
+<pre><code>[1] TRUE</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="find-specific-values-in-your-data" class="section level2">
+<h2>Find specific values in your data</h2>
+<p>Suppose we want to find how many times the zipcode <code>21212</code> occurs in our data. Two ways…</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgbWV0aG9kICMgMVxuc3VtKHJlc3RhdXJhbnRzJHppcENvZGUgPT0gXCIyMTIxMlwiKVxuYGBgIn0= -->
+<pre class="r"><code>## method # 1
+sum(restaurants$zipCode == &quot;21212&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDI4XG4ifQ== -->
+<pre><code>[1] 28</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgbWV0aG9kICMgMlxudGFibGUocmVzdGF1cmFudHMkemlwQ29kZSAlaW4lIGMoXCIyMTIxMlwiKSlcbmBgYCJ9 -->
+<pre class="r"><code>## method # 2
+table(restaurants$zipCode %in% c(&quot;21212&quot;))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5GQUxTRSAgVFJVRSBcbiAxMjk5ICAgIDI4IFxuIn0= -->
+<pre><code>
+FALSE  TRUE 
+ 1299    28 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>If we are searching for the occurrence of two zipcodes <code>21212</code> and <code>21213</code>, apply the same methods. The second method is more compact.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgbWV0aG9kICMgMVxuc3VtKHJlc3RhdXJhbnRzJHppcENvZGUgPT0gXCIyMTIxMlwiIHwgcmVzdGF1cmFudHMkemlwQ29kZSA9PSBcIjIxMjEzXCIpXG5gYGAifQ== -->
+<pre class="r"><code>## method # 1
+sum(restaurants$zipCode == &quot;21212&quot; | restaurants$zipCode == &quot;21213&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDU5XG4ifQ== -->
+<pre><code>[1] 59</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgbWV0aG9kICMgMlxudGFibGUocmVzdGF1cmFudHMkemlwQ29kZSAlaW4lIGMoXCIyMTIxMlwiLCBcIjIxMjEzXCIpKVxuYGBgIn0= -->
+<pre class="r"><code>## method # 2
+table(restaurants$zipCode %in% c(&quot;21212&quot;, &quot;21213&quot;))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5GQUxTRSAgVFJVRSBcbiAxMjY4ICAgIDU5IFxuIn0= -->
+<pre><code>
+FALSE  TRUE 
+ 1268    59 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>We can use the output of the previous example to subset our data, by putting the expression in the row subsetting part in <code>restaurants[rows,columns]</code></p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgZ2V0IHRoZSBkYXRhIG9mIGFsbCByZXN0YXVyYW50cyB3aXRoIHppcGNvZGUgXCIyMTIxMlwiIG9yIFwiMjEyMTNcIlxucmVzdGF1cmFudHNbcmVzdGF1cmFudHMkemlwQ29kZSAlaW4lIGMoXCIyMTIxMlwiLCBcIjIxMjEzXCIpLF1cbmBgYCJ9 -->
+<pre class="r"><code>## get the data of all restaurants with zipcode &quot;21212&quot; or &quot;21213&quot;
+restaurants[restaurants$zipCode %in% c(&quot;21212&quot;, &quot;21213&quot;),]</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="cross-tabs-and-flat-tables" class="section level2">
+<h2>Cross tabs and Flat tables</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgbG9hZCBVQ0IgYWRtaXNzaW9ucyBSIGRhdGFzZXQgXG5kYXRhKFwiVUNCQWRtaXNzaW9uc1wiKVxuIyMgUmVhZCBpdCBhcyBhIGRhdGFmcmFtZVxuZGYgPSBhcy5kYXRhLmZyYW1lKFVDQkFkbWlzc2lvbnMpXG4jIyBTdW1tYXJpemUgZGF0YVxuc3VtbWFyeShkZilcbmBgYCJ9 -->
+<pre class="r"><code>## load UCB admissions R dataset 
+data(&quot;UCBAdmissions&quot;)
+## Read it as a dataframe
+df = as.data.frame(UCBAdmissions)
+## Summarize data
+summary(df)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICAgQWRtaXQgICAgICAgR2VuZGVyICAgRGVwdCAgICAgICBGcmVxICAgICAgXG4gQWRtaXR0ZWQ6MTIgICBNYWxlICA6MTIgICBBOjQgICBNaW4uICAgOiAgOC4wICBcbiBSZWplY3RlZDoxMiAgIEZlbWFsZToxMiAgIEI6NCAgIDFzdCBRdS46IDgwLjAgIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgQzo0ICAgTWVkaWFuIDoxNzAuMCAgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICBEOjQgICBNZWFuICAgOjE4OC42ICBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgIEU6NCAgIDNyZCBRdS46MzAyLjUgIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgRjo0ICAgTWF4LiAgIDo1MTIuMCAgXG4ifQ== -->
+<pre><code>      Admit       Gender   Dept       Freq      
+ Admitted:12   Male  :12   A:4   Min.   :  8.0  
+ Rejected:12   Female:12   B:4   1st Qu.: 80.0  
+                           C:4   Median :170.0  
+                           D:4   Mean   :188.6  
+                           E:4   3rd Qu.:302.5  
+                           F:4   Max.   :512.0  </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Creating a cross tab that shows the <code>Freq</code> relationship between <code>Gender</code> and <code>Admit</code>. Let’s take a look at the syntax below. <code>Freq ~</code> means, break <code>Freq</code> variable by. So, <code>Freq ~ Gender+Admit</code> means break <code>Freq</code> by <code>Gender</code> and <code>Admit</code>. Finally, <code>data=df</code> means take these data information from <code>df</code> that we already created.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueHQgPC0geHRhYnMoRnJlcSB+IEdlbmRlcitBZG1pdCwgZGF0YSA9IGRmKVxueHRcbmBgYCJ9 -->
+<pre class="r"><code>xt &lt;- xtabs(Freq ~ Gender+Admit, data = df)
+xt</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICAgICBBZG1pdFxuR2VuZGVyICAgQWRtaXR0ZWQgUmVqZWN0ZWRcbiAgTWFsZSAgICAgICAxMTk4ICAgICAxNDkzXG4gIEZlbWFsZSAgICAgIDU1NyAgICAgMTI3OFxuIn0= -->
+<pre><code>        Admit
+Gender   Admitted Rejected
+  Male       1198     1493
+  Female      557     1278</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZnRhYmxlKHh0KVxuYGBgIn0= -->
+<pre class="r"><code>ftable(xt)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICAgIEFkbWl0IEFkbWl0dGVkIFJlamVjdGVkXG5HZW5kZXIgICAgICAgICAgICAgICAgICAgICAgICBcbk1hbGUgICAgICAgICAgICAgMTE5OCAgICAgMTQ5M1xuRmVtYWxlICAgICAgICAgICAgNTU3ICAgICAxMjc4XG4ifQ== -->
+<pre><code>       Admit Admitted Rejected
+Gender                        
+Male             1198     1493
+Female            557     1278</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+</div>
+<div id="size-of-the-dataset" class="section level1">
+<h1>Size of the dataset</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZmFrZSA9IHJub3JtKDFlNSlcbiMjIG91dHB1dCBpbiBieXRlc1xub2JqZWN0LnNpemUoZmFrZSlcbmBgYCJ9 -->
+<pre class="r"><code>fake = rnorm(1e5)
+## output in bytes
+object.size(fake)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiODAwMDI0IGJ5dGVzXG4ifQ== -->
+<pre><code>800024 bytes</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgY2hhbmdlIHRoZSB1bml0cyBvZiB0aGUgb3V0cHV0IHRvIE1iXG5wcmludChvYmplY3Quc2l6ZShmYWtlKSwgdW5pdHM9XCJNYlwiKVxuYGBgIn0= -->
+<pre class="r"><code>## change the units of the output to Mb
+print(object.size(fake), units=&quot;Mb&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiMC44IE1iXG4ifQ== -->
+<pre><code>0.8 Mb</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2sgLSBEYXRhIE1hbmlwdWxhdGlvbiINCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KDQojIG91dHB1dDoNCiMgICBtZF9kb2N1bWVudDoNCiMgICAgIHZhcmlhbnQ6IG1hcmtkb3duX2dpdGh1Yg0KIyAgICAgdG9jOiB0cnVlDQojICAgICB0b2NfZGVwdGg6IDMNCi0tLQ0KIyBDcmVhdGluZyBhbmQgc3Vic2V0dGluZyBEYXRhZnJhbWVzDQpgYGB7cn0NCnNldC5zZWVkKDApDQoNCiMjIGNyZWF0ZSBhIGRhdGFmcmFtZSB3aXRoIDUgcm93cywgYW5kIDMgY29sdW1ucyBuYW1lZCB2YXIxLDIsMy4NCmRmIDwtIGRhdGEuZnJhbWUoInZhcjEiID0gc2FtcGxlKDE6NSksICJ2YXIyIiA9IHNhbXBsZSg2OjEwKSwgInZhcjMiID0gc2FtcGxlKDExOjE1KSkNCmRmDQoNCiMjIHJhbmRvbWx5IHJlLWFycmFuZ2UgdGhlIHJvd3MgYW5kIHNldCB0aGUgMXN0IGFuZCB0aGUgM3JkIHJvd3MgaW4gdGhlIHZhcjIgY29sdW1uIHRvIE5BDQpkZiA8LSBkZltzYW1wbGUoMTo1KSxdOyBkZiR2YXIyW2MoMSwzKV0gPSBOQQ0KZGYNCg0KIyMgc3Vic2V0dGluZyB0aGUgMXN0IGNvbHVtbg0KZGZbLDFdIA0KDQojIyB5b3UgY2FuIHN1YnNldCB0aGUgY29sdW1uIHdpdGggdHMgbmFtZQ0KZGZbLCJ2YXIxIl0NCg0KIyMgc3Vic2V0dGluZyB0aGUgZmlyc3QgMiByb3dzIGFuZCB0aGUgMm5kIGNvbHVtbg0KZGZbMToyLCJ2YXIyIl0NCg0KIyMgU3Vic2V0IHVzaW5nIGxvZ2ljYWwgc3RhdGVtZW50cy4gZ2V0IHRoZSBjb2x1bW5zIHdpdGggcm93cyBzYXRpc2Z5IHZhcjEgPD0gMyBhbmQgdmFyMyA+IDExDQpkZlsoZGYkdmFyMSA8PSAzICYgZGYkdmFyMz4xMSksXQ0KDQojIyB1c2Ugd2hpY2ggdG8gcmV0dXJuIHRoZSBpbmRpY2VzIHRoYXQgc2F0aXNmeSBhIGNlcnRhaW4gY29uZGl0aW9uDQpkZlt3aGljaChkZiR2YXIyID4gOCksXQ0KYGBgDQoNCg==</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2sgLSBEYXRhIE1hbmlwdWxhdGlvbiINCiMgb3V0cHV0OiBodG1sX25vdGVib29rDQoNCm91dHB1dDoNCiAgbWRfZG9jdW1lbnQ6DQogICAgdmFyaWFudDogbWFya2Rvd25fZ2l0aHViDQogICAgdG9jOiB0cnVlDQogICAgdG9jX2RlcHRoOiAzDQotLS0NCiMgQ3JlYXRpbmcgYW5kIHN1YnNldHRpbmcgZGF0YWZyYW1lcw0KIyMgU29ydCAmIE9yZGVyDQpgYGB7cn0NCnNldC5zZWVkKDApDQoNCiMjIGNyZWF0ZSBhIGRhdGFmcmFtZSB3aXRoIDUgcm93cywgYW5kIDMgY29sdW1ucyBuYW1lZCB2YXIxLDIsMy4NCmRmIDwtIGRhdGEuZnJhbWUoInZhcjEiID0gc2FtcGxlKDE6NSksICJ2YXIyIiA9IHNhbXBsZSg2OjEwKSwgInZhcjMiID0gc2FtcGxlKDExOjE1KSkNCmRmDQoNCiMjIHJhbmRvbWx5IHJlLWFycmFuZ2UgdGhlIHJvd3MgYW5kIHNldCB0aGUgMXN0IGFuZCB0aGUgM3JkIHJvd3MgaW4gdGhlIHZhcjIgY29sdW1uIHRvIE5BDQpkZiA8LSBkZltzYW1wbGUoMTo1KSxdOyBkZiR2YXIyW2MoMSwzKV0gPSBOQQ0KZGYNCg0KIyMgc3Vic2V0dGluZyB0aGUgMXN0IGNvbHVtbg0KZGZbLDFdIA0KDQojIyB5b3UgY2FuIHN1YnNldCB0aGUgY29sdW1uIHdpdGggdHMgbmFtZQ0KZGZbLCJ2YXIxIl0NCg0KIyMgc3Vic2V0dGluZyB0aGUgZmlyc3QgMiByb3dzIGFuZCB0aGUgMm5kIGNvbHVtbg0KZGZbMToyLCJ2YXIyIl0NCg0KIyMgU3Vic2V0IHVzaW5nIGxvZ2ljYWwgc3RhdGVtZW50cy4gZ2V0IHRoZSBjb2x1bW5zIHdpdGggcm93cyBzYXRpc2Z5IHZhcjEgPD0gMyBhbmQgdmFyMyA+IDExDQpkZlsoZGYkdmFyMSA8PSAzICYgZGYkdmFyMz4xMSksXQ0KDQojIyB1c2Ugd2hpY2ggdG8gcmV0dXJuIHRoZSBpbmRpY2VzIHRoYXQgc2F0aXNmeSBhIGNlcnRhaW4gY29uZGl0aW9uDQpkZlt3aGljaChkZiR2YXIyID4gOCksXQ0KDQojIyBzb3J0IHZhcmlhYmxlcyBpbiBhc2NlbmRpbmcgb3JkZXIgYnkgZGVmYXVsdCANCnNvcnQoZGYkdmFyMSkNCg0KIyMgZm9yIGRlc2NlbmRpbmcgb3JkZXINCnNvcnQoZGYkdmFyMSwgZGVjcmVhc2luZyA9IFRSVUUpDQoNCiMjIGluY2FzZSBvZiBzb3J0aW5nIGRhdGEgd2l0aCBtaXNzaW5nIHZhcmlhYmxlcywgd2UgY2FuIGFkZCB0aGVtIGF0IHRoZSBlbmQNCnNvcnQoZGYkdmFyMiwgbmEubGFzdCA9IFRSVUUpDQoNCiMjIHJlLW9yZGVyaW5nIHRoZSByb3dzIG9mIHRoZSBkYXRhZnJhbWUgd3J0IHNvbWUgdmFyaWFibGUuDQpkZltvcmRlcihkZiR2YXIxKSxdDQoNCiMjIHdlIGNhbiBzb3J0IHVzaW5nIDIgdmFyaWFibGVzLCBzbyB0aGF0IGlmIHRoZXJlIGlzIGEgdGllIHVzaW5nIHRoZSAxc3QgdmFyaWFibGUsIG9yZGVyIHdpdGggdGhlIHNlY29uZCBvbmUNCmRmW29yZGVyKGRmJHZhcjEsZGYkdmFyMyksXQ0KDQojIyBvcmRlcmluZyB3aXRoIHBseXIgcGFja2FnZQ0KbGlicmFyeShwbHlyKQ0KYXJyYW5nZShkZiwgdmFyMSkgI2luY3JlYXNpbmcgb3JkZXINCg0KYXJyYW5nZShkZiwgZGVzYyh2YXIxKSkgI2RlY3JlYXNpbmcgb3JkZXINCg0KDQoNCmBgYA0KIyMgQWRkIHJvd3MgYW5kIGNvbHVtbnMNCmBgYHtyfQ0KIyMgY3JlYXRlIHRoZSBkYXRhZnJhbWUNCmRmIDwtIGRhdGEuZnJhbWUoInZhcjEiID0gc2FtcGxlKDE6NSksICJ2YXIyIiA9IHNhbXBsZSg2OjEwKSwgInZhcjMiID0gc2FtcGxlKDExOjE1KSkNCmRmDQoNCiMjIGFkZCB2YXI0IGNvbnRhaW5zIHNvbWUgcmFuZG9tIHZhbHVlcw0KZGYkdmFyNCA8LSBybm9ybSg1KQ0KZGYNCg0KIyMgYW5vdGhlciB3YXkgdG8gZG8gdGhpcyBpcyB1c2luZyBjb2x1bW4gYmluZCBmdW5jdGlvbiBjYmluZC4gSXQgcGFzdGVzIHRoZSBuZXcgY29sdW1uIGludG8gdGhlIHJpZ2h0IHNpZGUgb2YgdGhlIGRmLiBJZiB5b3Ugc3dpdGNoIG9yZGVycyB0aGUgbmV3IGNvbHVtbiB3aWxsIGJlIGFkZGVkIGludG8gdGhlIGxlZnQgc2lkZS4NCmRmMiA8LSBjYmluZChkZixybm9ybSg1KSkNCmRmMg0KDQojIyBhZGQgcm93cyB1c2luZyByb3cgYmluZCBmdW5jdGlvbiByYmluZC4gT3JkZXIgbWF0dGVycyBqdXN0IGxpa2UgY2JpbmQuDQpkZjMgPC0gcmJpbmQoZGYscmVwKDEwMCw0KSkNCmRmMw0KYGBgDQoNCkFub3RoZXIgd2F5IHRvIGRvIHRoaXMgaXMgdXNpbmcgY29sdW1uIGJpbmQgZnVuY3Rpb24gY2JpbmQuIEl0IHBhc3RlcyB0aGUgbmV3IGNvbHVtbiBpbnRvIHRoZSByaWdodCBzaWRlIG9mIHRoZSBkZi4gSWYgeW91IHN3aXRjaCBvcmRlcnMgdGhlIG5ldyBjb2x1bW4gd2lsbCBiZSBhZGRlZCBpbnRvIHRoZSBsZWZ0IHNpZGUuDQpgYGB7cn0NCmRmMiA8LSBjYmluZChkZixybm9ybSg1KSkNCmRmMg0KDQojIyBhZGQgcm93cyB1c2luZyByb3cgYmluZCBmdW5jdGlvbiByYmluZC4gT3JkZXIgbWF0dGVycyBqdXN0IGxpa2UgY2JpbmQuDQpkZjMgPC0gcmJpbmQoZGYscmVwKDEwMCw0KSkNCmRmMw0KYGBgDQoNCiMgU3VtbWFyaXppbmcgRGF0YQ0KYGBge3J9DQpyZXN0YXVyYW50cyA8LSByZWFkLmNzdigiUmVzdGF1cmFudHMuY3N2IikNCg0KIyMgU2hvdyB0aGUgZmlyc3QgMyByb3dzLiBXaXRob3V0IHNwZWNpZnlpbmcgbiwgaXQgd2lsbCBnaXZlIHRoZSB0b3AgNiByb3dzDQpoZWFkKHJlc3RhdXJhbnRzLCBuPTMpDQoNCiMjIHNob3cgdGhlIGxhc3QgMyByb3dzLiBXaXRob3V0IHNwZWNpZnlpbmcgbiwgaXQgd2lsbCBnaXZlIHRoZSBsYXN0IDYgcm93cw0KdGFpbChyZXN0YXVyYW50cywgbj0zKQ0KDQojIyBtYWtlIHN1bW1hcnkuIEl0IGdpdmVzIGhpc3RvZ3JhbSBmb3Igc3RyaW5nIGNvbHVtbnMgYW5kIHF1YW50aWxlcyBmb3IgbnVtZXJpYyBjb2x1bW5zDQpzdW1tYXJ5KHJlc3RhdXJhbnRzKQ0KDQojIyBtb3JlIGluIGRlcHRoIGRldGFpbHMNCnN0cihyZXN0YXVyYW50cykNCg0KIyMgUXVhbnRpbGVzDQpxdWFudGlsZShyZXN0YXVyYW50cyRjb3VuY2lsRGlzdHJpY3QsIG5hLnJtID0gVCkNCg0KIyMgcGFzc2luZyBwcm9iYWJpbGl0aWVzIHRvIHF1YW50aWxlDQpxdWFudGlsZShyZXN0YXVyYW50cyRjb3VuY2lsRGlzdHJpY3QsIG5hLnJtID0gVCwgcHJvYnMgPSBjKDAuNSwwLjcsMC45KSkNCmBgYA0KIyMgdGFibGVzDQpgdGFibGUoKWAgIG1ha2VzIGEgaGlzdG9ncmFtIGZvciB0aGUgaW5wdXQgb2JzZXJ2YXRpb25zLiBgdXNlTkEgPSAiaWZhbnkiYCB3aWxsIGFkZCBOQSBjb2x1bW4gaW4gdGhlIG91dHB1dCBjb250YWlucyB0aGUgbnVtYmVyIG9mIG1pc3NpbmcgdmFsdWVzLiBgdGFibGUoKWAgY2FuIGFsc28gdGFrZSAyIHZhcmlhYmxlcyB0byBjb25zdHJ1Y3QgYSAyRCBoaXN0b2dyYW0uDQpgYGB7cn0NCiMjIGNvdW50aW5nIHRoZSBudW1iZXIgb2Ygb2NjdXJlbmNlIGZvciBlYWggemlwY29kZQ0KdGFibGUocmVzdGF1cmFudHMkemlwQ29kZSwgdXNlTkEgPSAiaWZhbnkiKQ0KDQojIyAyRCBoaXN0b2dyYW0NCnRhYmxlKHJlc3RhdXJhbnRzJGNvdW5jaWxEaXN0cmljdCwgcmVzdGF1cmFudHMkemlwQ29kZSkNCg0KYGBgDQojIyBDaGVjayBmb3IgbWlzc2luZyB2YWx1ZXMNCg0KVXNlIGBpcy5uYWAgdG8gY2hlY2sgaWYgdGhlIHZhbHVlIGluIG5hIG9yIG5vdC4gaXQgZ2l2ZXMgYFRydWVgIG9yIGBGYWxzZWAgb3V0cHV0IHdpdGggdGhlIHNhbWUgc2l6ZSBhcyB0aGUgaW5wdXQuDQoNCk5vdGUgdGhhdCBpbiBgUmAsIGBUcnVlID0gMWAsIGFuZCBgZmFsc2UgPSAwYCwgc28gd2UgY2FuIHN1bSB0aGUgb3V0cHV0IG9mIGBpcy5uYSgpYCB0byBnZXQgdGhlIG51bWJlciBvZiBgTkFgIHZhbHVlcy4NCmBgYHtyfQ0KIyMgRXhhbXBsZQ0KeCA8LSBjKDEsNSxOQSwgMTAsIE5BKQ0KaXMubmEoeCkgIyB3ZSBleHBlY3QgdGhlIG91dHB1dCB0byBiZSBGLEYsVCxGLFQNCg0KIyMgbnVtYmVyIG9mIE5Bcw0Kc3VtKGlzLm5hKHgpKQ0KYGBgDQoNCklmIHdlIHdhbnQgdG8gY2hlY2sgaWYgdGhlcmUgaXMgYW55IGBOQWAgaW4gdGhlIGlucHV0IGRhdGEuIHdlIGNhbiB1c2UgYGFueSgpYCB0aGF0IGdpdmVzIGBUcnVlYCBpZiBhbnkgb2YgaXRzIGlucHV0cyBpcyBgVHJ1ZWAgYW5kIGBGYWxzZWAgb3RoZXJ3aXNlLiANCmBgYHtyfQ0KeCA8LSBjKDEsNSw5LCAxMCwgTkEpDQphbnkoaXMubmEoeCkpDQpgYGANCg0KVG8gY2hlY2sgaWYgZXZlcnkgc2luZ2xlIHZhbHVlIHNhdGlzZmllcyBhIGNlcnRhaW4gY29uZGl0aW9uLCB1c2UgYGFsbCgpYA0KYGBge3J9DQp5IDwtIGMoNSw2LDcsOCw5LDEwKQ0KIyMgQ2hlY2sgaWYgYWxsIHZhbHVlcyBpbiB5IGlzIGdyZWF0ZXIgdGhhbiAwDQphbGwoeT4wKQ0KYGBgDQojIyBTdW0gYWNyb3NzIHJvd3MgYW5kIGNvbHVtbnMNCmBgYHtyfQ0KIyMgZ2V0IHRoZSBudW1iZXIgb2YgTkFzIGluIGVhY2ggY29sdW1uDQpjb2xTdW1zKGlzLm5hKHJlc3RhdXJhbnRzKSkNCg0KIyMgbWFrZSBzdXJlIHRoYXQgdGhlcmUgaXMgbm8gbWlzc2luZyBkYXRhDQphbGwoY29sU3Vtcyhpcy5uYShyZXN0YXVyYW50cykpID09IDApDQpgYGANCg0KIyMgRmluZCBzcGVjaWZpYyB2YWx1ZXMgaW4geW91ciBkYXRhDQoNClN1cHBvc2Ugd2Ugd2FudCB0byBmaW5kIGhvdyBtYW55IHRpbWVzIHRoZSB6aXBjb2RlIGAyMTIxMmAgb2NjdXJzIGluIG91ciBkYXRhLiBUd28gd2F5cy4uLg0KYGBge3J9DQojIyBtZXRob2QgIyAxDQpzdW0ocmVzdGF1cmFudHMkemlwQ29kZSA9PSAiMjEyMTIiKQ0KDQojIyBtZXRob2QgIyAyDQp0YWJsZShyZXN0YXVyYW50cyR6aXBDb2RlICVpbiUgYygiMjEyMTIiKSkNCmBgYA0KDQpJZiB3ZSBhcmUgc2VhcmNoaW5nIGZvciB0aGUgb2NjdXJyZW5jZSBvZiB0d28gemlwY29kZXMgYDIxMjEyYCBhbmQgYDIxMjEzYCwgYXBwbHkgdGhlIHNhbWUgbWV0aG9kcy4gVGhlIHNlY29uZCBtZXRob2QgaXMgbW9yZSBjb21wYWN0Lg0KYGBge3J9DQojIyBtZXRob2QgIyAxDQpzdW0ocmVzdGF1cmFudHMkemlwQ29kZSA9PSAiMjEyMTIiIHwgcmVzdGF1cmFudHMkemlwQ29kZSA9PSAiMjEyMTMiKQ0KDQojIyBtZXRob2QgIyAyDQp0YWJsZShyZXN0YXVyYW50cyR6aXBDb2RlICVpbiUgYygiMjEyMTIiLCAiMjEyMTMiKSkNCmBgYA0KDQpXZSBjYW4gdXNlIHRoZSBvdXRwdXQgb2YgdGhlIHByZXZpb3VzIGV4YW1wbGUgdG8gc3Vic2V0IG91ciBkYXRhLCBieSBwdXR0aW5nIHRoZSBleHByZXNzaW9uIGluIHRoZSByb3cgc3Vic2V0dGluZyBwYXJ0IGluIGByZXN0YXVyYW50c1tyb3dzLGNvbHVtbnNdYA0KYGBge3J9DQojIyBnZXQgdGhlIGRhdGEgb2YgYWxsIHJlc3RhdXJhbnRzIHdpdGggemlwY29kZSAiMjEyMTIiIG9yICIyMTIxMyINCnJlc3RhdXJhbnRzW3Jlc3RhdXJhbnRzJHppcENvZGUgJWluJSBjKCIyMTIxMiIsICIyMTIxMyIpLF0NCmBgYA0KDQojIyBDcm9zcyB0YWJzIGFuZCBGbGF0IHRhYmxlcw0KYGBge3J9DQojIyBsb2FkIFVDQiBhZG1pc3Npb25zIFIgZGF0YXNldCANCmRhdGEoIlVDQkFkbWlzc2lvbnMiKQ0KDQojIyBSZWFkIGl0IGFzIGEgZGF0YWZyYW1lDQpkZiA9IGFzLmRhdGEuZnJhbWUoVUNCQWRtaXNzaW9ucykNCg0KIyMgU3VtbWFyaXplIGRhdGENCnN1bW1hcnkoZGYpDQpgYGANCg0KQ3JlYXRpbmcgYSBjcm9zcyB0YWIgdGhhdCBzaG93cyB0aGUgYEZyZXFgIHJlbGF0aW9uc2hpcCBiZXR3ZWVuIGBHZW5kZXJgIGFuZCBgQWRtaXRgLiBMZXQncyB0YWtlIGEgbG9vayBhdCB0aGUgc3ludGF4IGJlbG93LiBgRnJlcSB+YCBtZWFucywgYnJlYWsgYEZyZXFgIHZhcmlhYmxlIGJ5LiBTbywgYEZyZXEgfiBHZW5kZXIrQWRtaXRgIG1lYW5zIGJyZWFrIGBGcmVxYCBieSBgR2VuZGVyYCBhbmQgYEFkbWl0YC4gRmluYWxseSwgYGRhdGE9ZGZgIG1lYW5zIHRha2UgdGhlc2UgZGF0YSBpbmZvcm1hdGlvbiBmcm9tIGBkZmAgdGhhdCB3ZSBhbHJlYWR5IGNyZWF0ZWQuDQpgYGB7cn0NCnh0IDwtIHh0YWJzKEZyZXEgfiBHZW5kZXIrQWRtaXQsIGRhdGEgPSBkZikNCnh0DQoNCiMjIGZsYXQgdGFibGVzIGdpdmVzIG1vcmUgY29tcGFjdCBvdXRwdXQNCmZ0YWJsZSh4dCkNCmBgYA0KDQojIFNpemUgb2YgdGhlIGRhdGFzZXQNCmBgYHtyfQ0KZmFrZSA9IHJub3JtKDFlNSkNCg0KIyMgb3V0cHV0IGluIGJ5dGVzDQpvYmplY3Quc2l6ZShmYWtlKQ0KDQojIyBjaGFuZ2UgdGhlIHVuaXRzIG9mIHRoZSBvdXRwdXQgdG8gTWINCnByaW50KG9iamVjdC5zaXplKGZha2UpLCB1bml0cz0iTWIiKQ0KYGBgDQoNCg==</div>
 
 
 
