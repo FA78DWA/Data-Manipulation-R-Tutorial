@@ -177,7 +177,7 @@ table(restaurants$zipCode %in% c("21212", "21213"))
 ```
 
 We can use the output of the previous example to subset our data, by putting the expression in the row subsetting part in `restaurants[rows,columns]`
-```{r, fig.height=5, fig.width=5}
+```{r disapleOUT, include=FALSE}
 ## get the data of all restaurants with zipcode "21212" or "21213"
 restaurants[restaurants$zipCode %in% c("21212", "21213"),]
 ```
