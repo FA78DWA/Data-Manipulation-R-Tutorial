@@ -1007,14 +1007,22 @@ cylData
 
 `dplyr` package is designed to manipulate dataframes. It provides a grammer (verbs) to manipulate data, so it is easy to use. An example of `dplyr` verbs:
 
--   `select`: return a subset of the columns
+-   `select`: return a subset of the columns.
 
--   `filter`: extract a subset of rows based on a logical condition
+-   `filter`: extract a subset of rows based on a logical condition.
 
--   `arrange`: reorder rows
+-   `arrange`: reorder rows.
 
--   `rename`: rename variables (columns)
+-   `rename`: rename variables (columns).
 
--   `mutate`: add new variables or transform existing ones
+-   `mutate`: add new variables or transform existing ones.
 
-\*`summarize`: generate summary statistics for different variables
+-   `summarize`: generate summary statistics for different variables.
+
+All `dplyr` functions have certain format:
+
+-   The first argument is the `dataframe` we want to work on.
+
+-   The subsequent argumentd describe what we want to do with the `dataframe`, and we can refer directly to the variable name without using `$`.
+
+-   The output is always a new `dataframe`.
