@@ -241,7 +241,7 @@ table(restaurants$zipGroups, restaurants$zipCode)
 
 ```
 
-** An easier way to do the `cut` task, is to use `Hmisc` package.**
+**An easier way to do the `cut` task, is to use `Hmisc` package.**
 *It will need some other packages `survival`, `ggplot2`, see the error and download what is needed*
 ```{r}
 ## Load the library

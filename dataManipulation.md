@@ -664,7 +664,7 @@ table(restaurants$zipGroups, restaurants$zipCode)
     ##   (2.122e+04,2.123e+04]     0     0     0     0     0     0     0     0
     ##   (2.123e+04,2.129e+04]    13   156   127     7     1     3     2     1
 
-\*\* An easier way to do the `cut` task, is to use `Hmisc` package.\*\* *It will need some other packages `survival`, `ggplot2`, see the error and download what is needed*
+**An easier way to do the `cut` task, is to use `Hmisc` package.** *It will need some other packages `survival`, `ggplot2`, see the error and download what is needed*
 
 ``` r
 ## Load the library
