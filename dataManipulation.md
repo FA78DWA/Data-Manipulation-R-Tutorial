@@ -13,6 +13,9 @@
     -   [Categorical Variables](#categorical-variables)
     -   [Factor Variables](#factor-variables)
     -   [Using `mutate` from `plyr` package](#using-mutate-from-plyr-package)
+-   [Resahping Data](#resahping-data)
+    -   [`melt` the dataset](#melt-the-dataset)
+    -   [casting dataframes](#casting-dataframes)
 
 Creating and subsetting dataframes
 ==================================
@@ -780,3 +783,225 @@ table(restaurants$zipGroups)
     ## 
     ## [-21226,21205) [ 21205,21220) [ 21220,21227) [ 21227,21287] 
     ##            338            375            300            314
+
+Resahping Data
+==============
+
+`melt` the dataset
+------------------
+
+Highlighting only certian variables and transform the dataframe into a skinny tall one. The output is `id`, `variable`, and `value` dataframe. *Note that the original dataframe has 32 observations, and the melted one contains 64, that is because for each entry we want to see two variables "mpg" and "hp"*.
+
+``` r
+## load library
+library(reshape2)
+
+## load mtcars dataset that contains 11 variables(columns), 32 observations(rows)
+data("mtcars")
+head(mtcars)
+```
+
+    ##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
+    ## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+    ## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+    ## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+    ## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+    ## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+    ## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1
+
+``` r
+## variables names
+names(mtcars)
+```
+
+    ##  [1] "mpg"  "cyl"  "disp" "hp"   "drat" "wt"   "qsec" "vs"   "am"   "gear"
+    ## [11] "carb"
+
+``` r
+## Melt the dataset. The id is the 3 variables we specified. each entry will have two rows each descriping a variable ("mpg" or "hp")
+mtcars$carname <- rownames(mtcars)
+carMelt <- melt(mtcars, id = c("carname","gear", "cyl"), measure.vars = c("mpg", "hp"))
+head(carMelt)
+```
+
+    ##             carname gear cyl variable value
+    ## 1         Mazda RX4    4   6      mpg  21.0
+    ## 2     Mazda RX4 Wag    4   6      mpg  21.0
+    ## 3        Datsun 710    4   4      mpg  22.8
+    ## 4    Hornet 4 Drive    3   6      mpg  21.4
+    ## 5 Hornet Sportabout    3   8      mpg  18.7
+    ## 6           Valiant    3   6      mpg  18.1
+
+``` r
+## re-order the output by name to see that each entry will has two rows for the two variables ("mpg" or "hp")
+carMelt[order(carMelt$carname),]
+```
+
+    ##                carname gear cyl variable value
+    ## 23         AMC Javelin    3   8      mpg  15.2
+    ## 55         AMC Javelin    3   8       hp 150.0
+    ## 15  Cadillac Fleetwood    3   8      mpg  10.4
+    ## 47  Cadillac Fleetwood    3   8       hp 205.0
+    ## 24          Camaro Z28    3   8      mpg  13.3
+    ## 56          Camaro Z28    3   8       hp 245.0
+    ## 17   Chrysler Imperial    3   8      mpg  14.7
+    ## 49   Chrysler Imperial    3   8       hp 230.0
+    ## 3           Datsun 710    4   4      mpg  22.8
+    ## 35          Datsun 710    4   4       hp  93.0
+    ## 22    Dodge Challenger    3   8      mpg  15.5
+    ## 54    Dodge Challenger    3   8       hp 150.0
+    ## 7           Duster 360    3   8      mpg  14.3
+    ## 39          Duster 360    3   8       hp 245.0
+    ## 30        Ferrari Dino    5   6      mpg  19.7
+    ## 62        Ferrari Dino    5   6       hp 175.0
+    ## 18            Fiat 128    4   4      mpg  32.4
+    ## 50            Fiat 128    4   4       hp  66.0
+    ## 26           Fiat X1-9    4   4      mpg  27.3
+    ## 58           Fiat X1-9    4   4       hp  66.0
+    ## 29      Ford Pantera L    5   8      mpg  15.8
+    ## 61      Ford Pantera L    5   8       hp 264.0
+    ## 19         Honda Civic    4   4      mpg  30.4
+    ## 51         Honda Civic    4   4       hp  52.0
+    ## 4       Hornet 4 Drive    3   6      mpg  21.4
+    ## 36      Hornet 4 Drive    3   6       hp 110.0
+    ## 5    Hornet Sportabout    3   8      mpg  18.7
+    ## 37   Hornet Sportabout    3   8       hp 175.0
+    ## 16 Lincoln Continental    3   8      mpg  10.4
+    ## 48 Lincoln Continental    3   8       hp 215.0
+    ## 28        Lotus Europa    5   4      mpg  30.4
+    ## 60        Lotus Europa    5   4       hp 113.0
+    ## 31       Maserati Bora    5   8      mpg  15.0
+    ## 63       Maserati Bora    5   8       hp 335.0
+    ## 1            Mazda RX4    4   6      mpg  21.0
+    ## 33           Mazda RX4    4   6       hp 110.0
+    ## 2        Mazda RX4 Wag    4   6      mpg  21.0
+    ## 34       Mazda RX4 Wag    4   6       hp 110.0
+    ## 9             Merc 230    4   4      mpg  22.8
+    ## 41            Merc 230    4   4       hp  95.0
+    ## 8            Merc 240D    4   4      mpg  24.4
+    ## 40           Merc 240D    4   4       hp  62.0
+    ## 10            Merc 280    4   6      mpg  19.2
+    ## 42            Merc 280    4   6       hp 123.0
+    ## 11           Merc 280C    4   6      mpg  17.8
+    ## 43           Merc 280C    4   6       hp 123.0
+    ## 12          Merc 450SE    3   8      mpg  16.4
+    ## 44          Merc 450SE    3   8       hp 180.0
+    ## 13          Merc 450SL    3   8      mpg  17.3
+    ## 45          Merc 450SL    3   8       hp 180.0
+    ## 14         Merc 450SLC    3   8      mpg  15.2
+    ## 46         Merc 450SLC    3   8       hp 180.0
+    ## 25    Pontiac Firebird    3   8      mpg  19.2
+    ## 57    Pontiac Firebird    3   8       hp 175.0
+    ## 27       Porsche 914-2    5   4      mpg  26.0
+    ## 59       Porsche 914-2    5   4       hp  91.0
+    ## 20      Toyota Corolla    4   4      mpg  33.9
+    ## 52      Toyota Corolla    4   4       hp  65.0
+    ## 21       Toyota Corona    3   4      mpg  21.5
+    ## 53       Toyota Corona    3   4       hp  97.0
+    ## 6              Valiant    3   6      mpg  18.1
+    ## 38             Valiant    3   6       hp 105.0
+    ## 32          Volvo 142E    4   4      mpg  21.4
+    ## 64          Volvo 142E    4   4       hp 109.0
+
+``` r
+## Another way to re-order is to use arrange(df, by)
+arrange(carMelt, carname)
+```
+
+    ##                carname gear cyl variable value
+    ## 1          AMC Javelin    3   8      mpg  15.2
+    ## 2          AMC Javelin    3   8       hp 150.0
+    ## 3   Cadillac Fleetwood    3   8      mpg  10.4
+    ## 4   Cadillac Fleetwood    3   8       hp 205.0
+    ## 5           Camaro Z28    3   8      mpg  13.3
+    ## 6           Camaro Z28    3   8       hp 245.0
+    ## 7    Chrysler Imperial    3   8      mpg  14.7
+    ## 8    Chrysler Imperial    3   8       hp 230.0
+    ## 9           Datsun 710    4   4      mpg  22.8
+    ## 10          Datsun 710    4   4       hp  93.0
+    ## 11    Dodge Challenger    3   8      mpg  15.5
+    ## 12    Dodge Challenger    3   8       hp 150.0
+    ## 13          Duster 360    3   8      mpg  14.3
+    ## 14          Duster 360    3   8       hp 245.0
+    ## 15        Ferrari Dino    5   6      mpg  19.7
+    ## 16        Ferrari Dino    5   6       hp 175.0
+    ## 17            Fiat 128    4   4      mpg  32.4
+    ## 18            Fiat 128    4   4       hp  66.0
+    ## 19           Fiat X1-9    4   4      mpg  27.3
+    ## 20           Fiat X1-9    4   4       hp  66.0
+    ## 21      Ford Pantera L    5   8      mpg  15.8
+    ## 22      Ford Pantera L    5   8       hp 264.0
+    ## 23         Honda Civic    4   4      mpg  30.4
+    ## 24         Honda Civic    4   4       hp  52.0
+    ## 25      Hornet 4 Drive    3   6      mpg  21.4
+    ## 26      Hornet 4 Drive    3   6       hp 110.0
+    ## 27   Hornet Sportabout    3   8      mpg  18.7
+    ## 28   Hornet Sportabout    3   8       hp 175.0
+    ## 29 Lincoln Continental    3   8      mpg  10.4
+    ## 30 Lincoln Continental    3   8       hp 215.0
+    ## 31        Lotus Europa    5   4      mpg  30.4
+    ## 32        Lotus Europa    5   4       hp 113.0
+    ## 33       Maserati Bora    5   8      mpg  15.0
+    ## 34       Maserati Bora    5   8       hp 335.0
+    ## 35           Mazda RX4    4   6      mpg  21.0
+    ## 36           Mazda RX4    4   6       hp 110.0
+    ## 37       Mazda RX4 Wag    4   6      mpg  21.0
+    ## 38       Mazda RX4 Wag    4   6       hp 110.0
+    ## 39            Merc 230    4   4      mpg  22.8
+    ## 40            Merc 230    4   4       hp  95.0
+    ## 41           Merc 240D    4   4      mpg  24.4
+    ## 42           Merc 240D    4   4       hp  62.0
+    ## 43            Merc 280    4   6      mpg  19.2
+    ## 44            Merc 280    4   6       hp 123.0
+    ## 45           Merc 280C    4   6      mpg  17.8
+    ## 46           Merc 280C    4   6       hp 123.0
+    ## 47          Merc 450SE    3   8      mpg  16.4
+    ## 48          Merc 450SE    3   8       hp 180.0
+    ## 49          Merc 450SL    3   8      mpg  17.3
+    ## 50          Merc 450SL    3   8       hp 180.0
+    ## 51         Merc 450SLC    3   8      mpg  15.2
+    ## 52         Merc 450SLC    3   8       hp 180.0
+    ## 53    Pontiac Firebird    3   8      mpg  19.2
+    ## 54    Pontiac Firebird    3   8       hp 175.0
+    ## 55       Porsche 914-2    5   4      mpg  26.0
+    ## 56       Porsche 914-2    5   4       hp  91.0
+    ## 57      Toyota Corolla    4   4      mpg  33.9
+    ## 58      Toyota Corolla    4   4       hp  65.0
+    ## 59       Toyota Corona    3   4      mpg  21.5
+    ## 60       Toyota Corona    3   4       hp  97.0
+    ## 61             Valiant    3   6      mpg  18.1
+    ## 62             Valiant    3   6       hp 105.0
+    ## 63          Volvo 142E    4   4      mpg  21.4
+    ## 64          Volvo 142E    4   4       hp 109.0
+
+casting dataframes
+------------------
+
+After melting the dataframe, we can reformat the it into different shapes `dcast`. For example, we want to see how `cyl` variable is related to other variables in the melted dataframe. *remember that we have 2 variables ("mpg" or "hp")*
+
+``` r
+## The output is the summary of the # of "mpg" and "hp" observations for each "cyl" value 
+cylData <- dcast(carMelt, cyl ~ variable)
+```
+
+    ## Aggregation function missing: defaulting to length
+
+``` r
+cylData
+```
+
+    ##   cyl mpg hp
+    ## 1   4  11 11
+    ## 2   6   7  7
+    ## 3   8  14 14
+
+``` r
+## For the mean value of "mpg" and "hp" for each "cyl" value 
+cylData <- dcast(carMelt, cyl ~ variable, mean)
+cylData
+```
+
+    ##   cyl      mpg        hp
+    ## 1   4 26.66364  82.63636
+    ## 2   6 19.74286 122.28571
+    ## 3   8 15.10000 209.21429

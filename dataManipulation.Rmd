@@ -297,4 +297,43 @@ library(plyr)
 restaurants <- mutate(restaurants, zipGroups=cut2(zipCode, g=4))
 table(restaurants$zipGroups)
 ```
+# Resahping Data
+## `melt` the dataset
+
+Highlighting only certian variables and transform the dataframe into a skinny tall one. The output is `id`, `variable`, and `value` dataframe. *Note that the original dataframe has 32 observations, and the melted one contains 64, that is because for each entry we want to see two variables "mpg" and "hp"*.
+ 
+```{r}
+## load library
+library(reshape2)
+
+## load mtcars dataset that contains 11 variables(columns), 32 observations(rows)
+data("mtcars")
+head(mtcars)
+
+## variables names
+names(mtcars)
+
+## Melt the dataset. The id is the 3 variables we specified. each entry will have two rows each descriping a variable ("mpg" or "hp")
+mtcars$carname <- rownames(mtcars)
+carMelt <- melt(mtcars, id = c("carname","gear", "cyl"), measure.vars = c("mpg", "hp"))
+head(carMelt)
+
+## re-order the output by name to see that each entry will has two rows for the two variables ("mpg" or "hp")
+carMelt[order(carMelt$carname),]
+
+## Another way to re-order is to use arrange(df, by)
+arrange(carMelt, carname)
+```
+
+## casting dataframes
+After melting the dataframe, we can reformat the it into different shapes `dcast`. For example, we want to see how `cyl` variable is related to other variables in the melted dataframe. *remember that we have 2 variables ("mpg" or "hp")*
+```{r}
+## The output is the summary of the # of "mpg" and "hp" observations for each "cyl" value 
+cylData <- dcast(carMelt, cyl ~ variable)
+cylData
+
+## For the mean value of "mpg" and "hp" for each "cyl" value 
+cylData <- dcast(carMelt, cyl ~ variable, mean)
+cylData
+```
 
