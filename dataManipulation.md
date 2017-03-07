@@ -8,6 +8,11 @@
     -   [Find specific values in your data](#find-specific-values-in-your-data)
     -   [Cross tabs and Flat tables](#cross-tabs-and-flat-tables)
 -   [Size of the dataset](#size-of-the-dataset)
+-   [Create new variables](#create-new-variables)
+    -   [`ifelse`](#ifelse)
+    -   [Categorical Variables](#categorical-variables)
+    -   [Factor Variables](#factor-variables)
+    -   [Using `mutate` from `plyr` package](#using-mutate-from-plyr-package)
 
 Creating and subsetting dataframes
 ==================================
@@ -570,3 +575,208 @@ print(object.size(fake), units="Mb")
 ```
 
     ## 0.8 Mb
+
+Create new variables
+====================
+
+`ifelse`
+--------
+
+Given the `restaurants` dataset, we want to add column `falseZip` indicates the wronge zipcodes in this dataset.
+
+``` r
+## if the zipcode < 0 the output is true (falsezip=true)
+restaurants$falsezip = ifelse(restaurants$zipCode < 0, TRUE, FALSE)
+
+## summarize the output using table
+table(restaurants$falsezip, restaurants$zipCode < 0)
+```
+
+    ##        
+    ##         FALSE TRUE
+    ##   FALSE  1326    0
+    ##   TRUE      0    1
+
+``` r
+## we have one false zipcode (-21226)
+table(restaurants$falsezip, restaurants$zipCode)
+```
+
+    ##        
+    ##         -21226 21201 21202 21205 21206 21207 21208 21209 21210 21211 21212
+    ##   FALSE      0   136   201    27    30     4     1     8    23    41    28
+    ##   TRUE       1     0     0     0     0     0     0     0     0     0     0
+    ##        
+    ##         21213 21214 21215 21216 21217 21218 21220 21222 21223 21224 21225
+    ##   FALSE    31    17    54    10    32    69     1     7    56   199    19
+    ##   TRUE      0     0     0     0     0     0     0     0     0     0     0
+    ##        
+    ##         21226 21227 21229 21230 21231 21234 21237 21239 21251 21287
+    ##   FALSE    18     4    13   156   127     7     1     3     2     1
+    ##   TRUE      0     0     0     0     0     0     0     0     0     0
+
+Categorical Variables
+---------------------
+
+We can put our data into groups using `cut()`. The output of `cut` is a **factor variable**.
+
+``` r
+## Break zipcode data into groups wrt quantile output. Each zipcode will have it's group in the zipGroups column
+restaurants$zipGroups = cut(restaurants$zipCode, breaks = quantile(restaurants$zipCode))
+
+## summarizing the zipGroups (histogram like table)
+table(restaurants$zipGroups)
+```
+
+    ## 
+    ## (-2.123e+04,2.12e+04]  (2.12e+04,2.122e+04] (2.122e+04,2.123e+04] 
+    ##                   337                   375                   282 
+    ## (2.123e+04,2.129e+04] 
+    ##                   332
+
+``` r
+## summarizing the zipcodes wrt zipGroups
+table(restaurants$zipGroups, restaurants$zipCode)
+```
+
+    ##                        
+    ##                         -21226 21201 21202 21205 21206 21207 21208 21209
+    ##   (-2.123e+04,2.12e+04]      0   136   201     0     0     0     0     0
+    ##   (2.12e+04,2.122e+04]       0     0     0    27    30     4     1     8
+    ##   (2.122e+04,2.123e+04]      0     0     0     0     0     0     0     0
+    ##   (2.123e+04,2.129e+04]      0     0     0     0     0     0     0     0
+    ##                        
+    ##                         21210 21211 21212 21213 21214 21215 21216 21217
+    ##   (-2.123e+04,2.12e+04]     0     0     0     0     0     0     0     0
+    ##   (2.12e+04,2.122e+04]     23    41    28    31    17    54    10    32
+    ##   (2.122e+04,2.123e+04]     0     0     0     0     0     0     0     0
+    ##   (2.123e+04,2.129e+04]     0     0     0     0     0     0     0     0
+    ##                        
+    ##                         21218 21220 21222 21223 21224 21225 21226 21227
+    ##   (-2.123e+04,2.12e+04]     0     0     0     0     0     0     0     0
+    ##   (2.12e+04,2.122e+04]     69     0     0     0     0     0     0     0
+    ##   (2.122e+04,2.123e+04]     0     1     7    56   199    19     0     0
+    ##   (2.123e+04,2.129e+04]     0     0     0     0     0     0    18     4
+    ##                        
+    ##                         21229 21230 21231 21234 21237 21239 21251 21287
+    ##   (-2.123e+04,2.12e+04]     0     0     0     0     0     0     0     0
+    ##   (2.12e+04,2.122e+04]      0     0     0     0     0     0     0     0
+    ##   (2.122e+04,2.123e+04]     0     0     0     0     0     0     0     0
+    ##   (2.123e+04,2.129e+04]    13   156   127     7     1     3     2     1
+
+\*\* An easier way to do the `cut` task, is to use `Hmisc` package.\*\* *It will need some other packages `survival`, `ggplot2`, see the error and download what is needed*
+
+``` r
+## Load the library
+library(Hmisc)
+```
+
+    ## Loading required package: lattice
+
+    ## Loading required package: survival
+
+    ## Loading required package: Formula
+
+    ## Loading required package: ggplot2
+
+    ## 
+    ## Attaching package: 'Hmisc'
+
+    ## The following objects are masked from 'package:plyr':
+    ## 
+    ##     is.discrete, summarize
+
+    ## The following objects are masked from 'package:base':
+    ## 
+    ##     format.pval, round.POSIXt, trunc.POSIXt, units
+
+``` r
+## cut the zipcodes into 4 groups(g=4) according to quantiles
+restaurants$zipGroups = cut2(restaurants$zipCode, g=4)
+
+## summarizing the zipGroups (histogram like table)
+table(restaurants$zipGroups)
+```
+
+    ## 
+    ## [-21226,21205) [ 21205,21220) [ 21220,21227) [ 21227,21287] 
+    ##            338            375            300            314
+
+Factor Variables
+----------------
+
+IT might be intuative not to leave zipcodes as integers, because it will take more space and we will neve add or subtract them. That's why we make zipcode variable a `factor`.
+
+``` r
+restaurants$zipcodeF = factor(restaurants$zipCode)
+
+## looking at the first 10 values. There are 32 different values (levels) of zipcode
+restaurants$zipcodeF[1:10]
+```
+
+    ##  [1] 21206 21231 21224 21211 21223 21218 21205 21211 21205 21231
+    ## 32 Levels: -21226 21201 21202 21205 21206 21207 21208 21209 ... 21287
+
+``` r
+class(restaurants$zipcodeF)
+```
+
+    ## [1] "factor"
+
+**Another example on factor variables**
+
+In case of character variables, `factor` arranges the levels according to the alphabetical order of the variables. Also, factor variables can be transfered into numerical variables using `as.umeric()`.
+
+``` r
+## create a sample vector of size 10 with yes or no values.
+yn <- sample(c("yes","no"), size = 10, replace = T)
+
+## Create a factor variable for the yn variable
+## see here factor() will make the first value "alphabetically" as its first level.  
+fct <- factor(yn)
+fct
+```
+
+    ##  [1] no  yes yes no  no  no  yes no  yes no 
+    ## Levels: no yes
+
+``` r
+## no = 1 because it is the first level, and yes = 2
+as.numeric(fct)
+```
+
+    ##  [1] 1 2 2 1 1 1 2 1 2 1
+
+``` r
+## To make yes the first level give factor() the ordered list of levels.
+fct <- factor(yn, levels = c("yes", "no"))
+fct
+```
+
+    ##  [1] no  yes yes no  no  no  yes no  yes no 
+    ## Levels: yes no
+
+``` r
+## yes = 1 because it is the first level, and no = 2
+as.numeric(fct)
+```
+
+    ##  [1] 2 1 1 2 2 2 1 2 1 2
+
+Using `mutate` from `plyr` package
+----------------------------------
+
+We can create new variable and add it to the dataframe one line of code using `mutate`.
+
+``` r
+## load the library
+library(plyr)
+
+## creating zipGroups from cutting zipcodes into 4 groups, and add it to the dataframe
+restaurants <- mutate(restaurants, zipGroups=cut2(zipCode, g=4))
+table(restaurants$zipGroups)
+```
+
+    ## 
+    ## [-21226,21205) [ 21205,21220) [ 21220,21227) [ 21227,21287] 
+    ##            338            375            300            314

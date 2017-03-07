@@ -213,4 +213,88 @@ object.size(fake)
 ## change the units of the output to Mb
 print(object.size(fake), units="Mb")
 ```
+# Create new variables
+## `ifelse`
+Given the `restaurants` dataset, we want to add column `falseZip` indicates the wronge zipcodes in this dataset. 
+```{r}
+## if the zipcode < 0 the output is true (falsezip=true)
+restaurants$falsezip = ifelse(restaurants$zipCode < 0, TRUE, FALSE)
+
+## summarize the output using table
+table(restaurants$falsezip, restaurants$zipCode < 0)
+
+## we have one false zipcode (-21226)
+table(restaurants$falsezip, restaurants$zipCode)
+```
+
+## Categorical Variables
+We can put our data into groups using `cut()`. The output of `cut` is a **factor variable**.
+```{r}
+## Break zipcode data into groups wrt quantile output. Each zipcode will have it's group in the zipGroups column
+restaurants$zipGroups = cut(restaurants$zipCode, breaks = quantile(restaurants$zipCode))
+
+## summarizing the zipGroups (histogram like table)
+table(restaurants$zipGroups)
+
+## summarizing the zipcodes wrt zipGroups
+table(restaurants$zipGroups, restaurants$zipCode)
+
+```
+
+** An easier way to do the `cut` task, is to use `Hmisc` package.**
+*It will need some other packages `survival`, `ggplot2`, see the error and download what is needed*
+```{r}
+## Load the library
+library(Hmisc)
+
+## cut the zipcodes into 4 groups(g=4) according to quantiles
+restaurants$zipGroups = cut2(restaurants$zipCode, g=4)
+
+## summarizing the zipGroups (histogram like table)
+table(restaurants$zipGroups)
+```
+## Factor Variables
+IT might be intuative not to leave zipcodes as integers, because it will take more space and we will neve add or subtract them. That's why we make zipcode variable a `factor`.
+```{r}
+restaurants$zipcodeF = factor(restaurants$zipCode)
+
+## looking at the first 10 values. There are 32 different values (levels) of zipcode
+restaurants$zipcodeF[1:10]
+
+class(restaurants$zipcodeF)
+```
+
+**Another example on factor variables**
+
+In case of character variables, `factor` arranges the levels according to the alphabetical order of the variables. Also, factor variables can be transfered into numerical variables using `as.umeric()`.
+```{r}
+## create a sample vector of size 10 with yes or no values.
+yn <- sample(c("yes","no"), size = 10, replace = T)
+
+## Create a factor variable for the yn variable
+## see here factor() will make the first value "alphabetically" as its first level.  
+fct <- factor(yn)
+fct
+
+## no = 1 because it is the first level, and yes = 2
+as.numeric(fct)
+
+## To make yes the first level give factor() the ordered list of levels.
+fct <- factor(yn, levels = c("yes", "no"))
+fct
+
+## yes = 1 because it is the first level, and no = 2
+as.numeric(fct)
+```
+
+## Using `mutate` from `plyr` package
+We can create new variable and add it to the dataframe one line of code using `mutate`.
+```{r}
+## load the library
+library(plyr)
+
+## creating zipGroups from cutting zipcodes into 4 groups, and add it to the dataframe
+restaurants <- mutate(restaurants, zipGroups=cut2(zipCode, g=4))
+table(restaurants$zipGroups)
+```
 
