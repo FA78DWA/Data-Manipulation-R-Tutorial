@@ -337,3 +337,17 @@ cylData <- dcast(carMelt, cyl ~ variable, mean)
 cylData
 ```
 
+# `dplyr` Package
+`dplyr` package is designed to manipulate dataframes. It provides a grammer (verbs) to manipulate data, so it is easy to use. An example of `dplyr` verbs:
+
+* `select`: return a subset of the columns
+
+* `filter`: extract a subset of rows based on a logical condition
+
+* `arrange`: reorder rows
+
+* `rename`: rename variables (columns)
+
+* `mutate`: add new variables or transform existing ones
+
+*`summarize`: generate summary statistics for different variables

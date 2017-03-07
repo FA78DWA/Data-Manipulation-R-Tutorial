@@ -16,6 +16,7 @@
 -   [Resahping Data](#resahping-data)
     -   [`melt` the dataset](#melt-the-dataset)
     -   [casting dataframes](#casting-dataframes)
+-   [`dplyr` Package](#dplyr-package)
 
 Creating and subsetting dataframes
 ==================================
@@ -1000,3 +1001,20 @@ cylData
     ## 1   4 26.66364  82.63636
     ## 2   6 19.74286 122.28571
     ## 3   8 15.10000 209.21429
+
+`dplyr` Package
+===============
+
+`dplyr` package is designed to manipulate dataframes. It provides a grammer (verbs) to manipulate data, so it is easy to use. An example of `dplyr` verbs:
+
+-   `select`: return a subset of the columns
+
+-   `filter`: extract a subset of rows based on a logical condition
+
+-   `arrange`: reorder rows
+
+-   `rename`: rename variables (columns)
+
+-   `mutate`: add new variables or transform existing ones
+
+\*`summarize`: generate summary statistics for different variables
