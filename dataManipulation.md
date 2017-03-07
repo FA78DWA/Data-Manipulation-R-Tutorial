@@ -705,7 +705,7 @@ table(restaurants$zipGroups)
 Factor Variables
 ----------------
 
-IT might be intuative not to leave zipcodes as integers, because it will take more space and we will neve add or subtract them. That's why we make zipcode variable a `factor`.
+It might be intuative not to leave zipcodes as integers, because it will take more space and we will neve add or subtract them. That's why we make zipcode variable a `factor`.
 
 ``` r
 restaurants$zipcodeF = factor(restaurants$zipCode)
