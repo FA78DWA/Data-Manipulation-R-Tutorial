@@ -327,7 +327,7 @@ arrange(carMelt, carname)
 
 ## casting dataframes
 After melting the dataframe, we can reformat the it into different shapes `dcast`. For example, we want to see how `cyl` variable is related to other variables in the melted dataframe. *remember that we have 2 variables ("mpg" or "hp")*
-```{r}
+```{r, message=FALSE, warning=FALSE}
 ## The output is the summary of the # of "mpg" and "hp" observations for each "cyl" value 
 cylData <- dcast(carMelt, cyl ~ variable)
 cylData

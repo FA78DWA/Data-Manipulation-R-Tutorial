@@ -982,11 +982,6 @@ After melting the dataframe, we can reformat the it into different shapes `dcast
 ``` r
 ## The output is the summary of the # of "mpg" and "hp" observations for each "cyl" value 
 cylData <- dcast(carMelt, cyl ~ variable)
-```
-
-    ## Aggregation function missing: defaulting to length
-
-``` r
 cylData
 ```
 
