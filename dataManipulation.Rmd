@@ -156,32 +156,6 @@ colSums(is.na(restaurants))
 all(colSums(is.na(restaurants)) == 0)
 ```
 
-## Find specific values in your data
-
-Suppose we want to find how many times the zipcode `21212` occurs in our data. Two ways...
-```{r}
-## method # 1
-sum(restaurants$zipCode == "21212")
-
-## method # 2
-table(restaurants$zipCode %in% c("21212"))
-```
-
-If we are searching for the occurrence of two zipcodes `21212` and `21213`, apply the same methods. The second method is more compact.
-```{r}
-## method # 1
-sum(restaurants$zipCode == "21212" | restaurants$zipCode == "21213")
-
-## method # 2
-table(restaurants$zipCode %in% c("21212", "21213"))
-```
-
-We can use the output of the previous example to subset our data, by putting the expression in the row subsetting part in `restaurants[rows,columns]`
-```{r results = "hide"}
-## get the data of all restaurants with zipcode "21212" or "21213". I hide the result because it is big.
-restaurants[restaurants$zipCode %in% c("21212", "21213"),]
-```
-
 ## Cross tabs and Flat tables
 ```{r}
 ## load UCB admissions R dataset 
@@ -473,5 +447,111 @@ If we want to summarize the data based on months. Same as before, create `month`
 ## 
 chicago %>% mutate(month = as.POSIXlt(date)$mon + 1) %>% group_by(month) %>% summarize(pm25=mean(pm25, na.rm = TRUE), o3=max(o3tmean2), no2=median(no2tmean2))
 ```
+# Fixing character vectors
+For this section, download [Baltimore_Fixed_Speed_Cameras](https://data.baltimorecity.gov/Transportation/Baltimore-Fixed-Speed-Cameras/dz54-2aru) data, and load it.
+```{r}
+## Loading the data
+speedData <- read.csv("Baltimore_Fixed_Speed_Cameras.csv")
 
+## Look at the column names
+names(speedData)
+```
+## `tolower()`, and `toupper()`
+Some column names have mixed lower and upper case characters. To set all the characters to lowercase, use `tolower()`. The opposite is `toupper()`.
+```{r}
+tolower(names(speedData))
 
+toupper(names(speedData))
+```
+
+## Split strings `strsplit()`
+In the column names, `location.1` is separated with `.`. We can use `strsplit()` to split this name into two names by the `.`. The output of this function is a `list`.
+```{r}
+splitNames <- strsplit(names(speedData), "\\.")
+
+## access the first element to get the location
+splitNames[[6]][1]; splitNames[[6]][2]
+```
+
+Instead of accessing the output `list` manually to get the first element `splitNames[[6]][1]`, we can use `sapply` to do that, by appling a `function` that gets the first element of the list on every entry in the list.
+```{r}
+getFirstElement <- function(x){x[1]}
+sapply(splitNames, getFirstElement)
+```
+
+## Replace a charachter 
+`sub()` can be used to substitute a charachter with another. For example, remove `_` from the `listOfNames` given below.
+```{r}
+## given list of names
+listOfnames <- c("id","solution_id","reviewer_id","start","stop","time_left","accept")
+
+## replace _ with nospace
+sub("_","",listOfnames)
+```
+
+In case of multiple occurences of the character we want to replace use `gsub()`.
+```{r}
+name <- "this_is_a_test_text"
+
+## using sub removes the first "_"
+sub("_","",name)
+
+## Replace all "_" with nothing
+gsub("_","",name)
+```
+# Find specific values in your data
+## Using `grep()`, and `grepl()`
+To find the index/value of a specific pattern in a variable use `grep()`. On the other hand, `grepl()` is used to return a `logical` vector with `TRUE` where the pattern is found and `False` otherwise.
+```{r, message=FALSE}
+## Get the locations of the pattern
+grep("Alameda", speedData$intersection)
+
+## Get the value instead of indicies
+grep("Alameda", speedData$intersection, value = T)
+
+## How many values appear in the output
+length(grep("Alameda", speedData$intersection))
+
+## Logical vector
+grepl("Alameda", speedData$intersection)
+```
+
+To get the summary of how many times `Alameda` appears in the variable `intersection` use `table` on the output of `grepl()`
+```{r}
+table(grepl("Alameda", speedData$intersection))
+```
+`grepl()` can be used to subset the dataframe.
+```{r}
+## Get the rows where Alameda appears in intersection
+speedData[grepl("Alameda", speedData$intersection),]
+```
+
+## Using `%in%`
+Suppose we want to find how many times the zipcode `21212` occurs in our data. Two ways...
+```{r}
+## method # 1
+sum(restaurants$zipCode == "21212")
+
+## method # 2
+table(restaurants$zipCode %in% c("21212"))
+```
+
+If we are searching for the occurrence of two zipcodes `21212` and `21213`, apply the same methods. The second method is more compact.
+```{r}
+restaurants <- read.csv("Restaurants.csv")
+head(restaurants)
+
+## method # 1
+sum(restaurants$zipCode == "21212" | restaurants$zipCode == "21213")
+
+## method # 2
+table(restaurants$zipCode %in% c("21212", "21213"))
+```
+
+We can use the output of the previous example to subset our data, by putting the expression in the row subsetting part in `restaurants[rows,columns]`
+```{r results = "hide"}
+## get the data of all restaurants with zipcode "21212" or "21213". I hide the result because it is big.
+restaurants[restaurants$zipCode %in% c("21212", "21213"),]
+```
+
+# `stringr` Package

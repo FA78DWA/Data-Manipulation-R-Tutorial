@@ -5,7 +5,6 @@
     -   [tables](#tables)
     -   [Check for missing values](#check-for-missing-values)
     -   [Sum across rows and columns](#sum-across-rows-and-columns)
-    -   [Find specific values in your data](#find-specific-values-in-your-data)
     -   [Cross tabs and Flat tables](#cross-tabs-and-flat-tables)
 -   [Size of the dataset](#size-of-the-dataset)
 -   [Create new variables](#create-new-variables)
@@ -24,6 +23,14 @@
     -   [`mutate`](#mutate)
     -   [`summarize`](#summarize)
     -   [`%>%` operator](#operator)
+-   [Fixing character vectors](#fixing-character-vectors)
+    -   [`tolower()`, and `toupper()`](#tolower-and-toupper)
+    -   [Split strings `strsplit()`](#split-strings-strsplit)
+    -   [Replace a charachter](#replace-a-charachter)
+-   [Find specific values in your data](#find-specific-values-in-your-data)
+    -   [Using `grep()`, and `grepl()`](#using-grep-and-grepl)
+    -   [Using `%in%`](#using-in)
+-   [`stringr` Package](#stringr-package)
 
 Creating and subsetting dataframes
 ==================================
@@ -477,52 +484,6 @@ all(colSums(is.na(restaurants)) == 0)
 ```
 
     ## [1] TRUE
-
-Find specific values in your data
----------------------------------
-
-Suppose we want to find how many times the zipcode `21212` occurs in our data. Two ways...
-
-``` r
-## method # 1
-sum(restaurants$zipCode == "21212")
-```
-
-    ## [1] 28
-
-``` r
-## method # 2
-table(restaurants$zipCode %in% c("21212"))
-```
-
-    ## 
-    ## FALSE  TRUE 
-    ##  1299    28
-
-If we are searching for the occurrence of two zipcodes `21212` and `21213`, apply the same methods. The second method is more compact.
-
-``` r
-## method # 1
-sum(restaurants$zipCode == "21212" | restaurants$zipCode == "21213")
-```
-
-    ## [1] 59
-
-``` r
-## method # 2
-table(restaurants$zipCode %in% c("21212", "21213"))
-```
-
-    ## 
-    ## FALSE  TRUE 
-    ##  1268    59
-
-We can use the output of the previous example to subset our data, by putting the expression in the row subsetting part in `restaurants[rows,columns]`
-
-``` r
-## get the data of all restaurants with zipcode "21212" or "21213". I hide the result because it is big.
-restaurants[restaurants$zipCode %in% c("21212", "21213"),]
-```
 
 Cross tabs and Flat tables
 --------------------------
@@ -1332,3 +1293,237 @@ chicago %>% mutate(month = as.POSIXlt(date)$mon + 1) %>% group_by(month) %>% sum
     ## 10    10 14.23557 47.09275 24.15217
     ## 11    11 15.15794 29.45833 23.56537
     ## 12    12 17.52221 27.70833 24.45773
+
+Fixing character vectors
+========================
+
+For this section, download [Baltimore\_Fixed\_Speed\_Cameras](https://data.baltimorecity.gov/Transportation/Baltimore-Fixed-Speed-Cameras/dz54-2aru) data, and load it.
+
+``` r
+## Loading the data
+speedData <- read.csv("Baltimore_Fixed_Speed_Cameras.csv")
+
+## Look at the column names
+names(speedData)
+```
+
+    ## [1] "address"      "direction"    "street"       "crossStreet" 
+    ## [5] "intersection" "Location.1"
+
+`tolower()`, and `toupper()`
+----------------------------
+
+Some column names have mixed lower and upper case characters. To set all the characters to lowercase, use `tolower()`. The opposite is `toupper()`.
+
+``` r
+tolower(names(speedData))
+```
+
+    ## [1] "address"      "direction"    "street"       "crossstreet" 
+    ## [5] "intersection" "location.1"
+
+``` r
+toupper(names(speedData))
+```
+
+    ## [1] "ADDRESS"      "DIRECTION"    "STREET"       "CROSSSTREET" 
+    ## [5] "INTERSECTION" "LOCATION.1"
+
+Split strings `strsplit()`
+--------------------------
+
+In the column names, `location.1` is separated with `.`. We can use `strsplit()` to split this name into two names by the `.`. The output of this function is a `list`.
+
+``` r
+splitNames <- strsplit(names(speedData), "\\.")
+
+## access the first element to get the location
+splitNames[[6]][1]; splitNames[[6]][2]
+```
+
+    ## [1] "Location"
+
+    ## [1] "1"
+
+Instead of accessing the output `list` manually to get the first element `splitNames[[6]][1]`, we can use `sapply` to do that, by appling a `function` that gets the first element of the list on every entry in the list.
+
+``` r
+getFirstElement <- function(x){x[1]}
+sapply(splitNames, getFirstElement)
+```
+
+    ## [1] "address"      "direction"    "street"       "crossStreet" 
+    ## [5] "intersection" "Location"
+
+Replace a charachter
+--------------------
+
+`sub()` can be used to substitute a charachter with another. For example, remove `_` from the `listOfNames` given below.
+
+``` r
+## given list of names
+listOfnames <- c("id","solution_id","reviewer_id","start","stop","time_left","accept")
+
+## replace _ with nospace
+sub("_","",listOfnames)
+```
+
+    ## [1] "id"         "solutionid" "reviewerid" "start"      "stop"      
+    ## [6] "timeleft"   "accept"
+
+In case of multiple occurences of the character we want to replace use `gsub()`.
+
+``` r
+name <- "this_is_a_test_text"
+
+## using sub removes the first "_"
+sub("_","",name)
+```
+
+    ## [1] "thisis_a_test_text"
+
+``` r
+## Replace all "_" with nothing
+gsub("_","",name)
+```
+
+    ## [1] "thisisatesttext"
+
+Find specific values in your data
+=================================
+
+Using `grep()`, and `grepl()`
+-----------------------------
+
+To find the index/value of a specific pattern in a variable use `grep()`. On the other hand, `grepl()` is used to return a `logical` vector with `TRUE` where the pattern is found and `False` otherwise.
+
+``` r
+## Get the locations of the pattern
+grep("Alameda", speedData$intersection)
+```
+
+    ## [1]  4  5 36
+
+``` r
+## Get the value instead of indicies
+grep("Alameda", speedData$intersection, value = T)
+```
+
+    ## [1] "The Alameda  & 33rd St"   "E 33rd  & The Alameda"   
+    ## [3] "Harford \n & The Alameda"
+
+``` r
+## How many values appear in the output
+length(grep("Alameda", speedData$intersection))
+```
+
+    ## [1] 3
+
+``` r
+## Logical vector
+grepl("Alameda", speedData$intersection)
+```
+
+    ##  [1] FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE
+    ## [12] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+    ## [23] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+    ## [34] FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+    ## [45] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+    ## [56] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+    ## [67] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+    ## [78] FALSE FALSE FALSE
+
+To get the summary of how many times `Alameda` appears in the variable `intersection` use `table` on the output of `grepl()`
+
+``` r
+table(grepl("Alameda", speedData$intersection))
+```
+
+    ## 
+    ## FALSE  TRUE 
+    ##    77     3
+
+`grepl()` can be used to subset the dataframe.
+
+``` r
+## Get the rows where Alameda appears in intersection
+speedData[grepl("Alameda", speedData$intersection),]
+```
+
+    ##                     address direction      street crossStreet
+    ## 4   THE ALAMEDA & E 33RD ST       S/B The Alameda     33rd St
+    ## 5   E 33RD ST & THE ALAMEDA       E/B      E 33rd The Alameda
+    ## 36 HARFORD RD & THE ALAMEDA       N/B  Harford \n The Alameda
+    ##                intersection                      Location.1
+    ## 4    The Alameda  & 33rd St (39.3285013141, -76.5953545714)
+    ## 5     E 33rd  & The Alameda (39.3283410623, -76.5953594625)
+    ## 36 Harford \n & The Alameda (39.3212074758, -76.5907705888)
+
+Using `%in%`
+------------
+
+Suppose we want to find how many times the zipcode `21212` occurs in our data. Two ways...
+
+``` r
+## method # 1
+sum(restaurants$zipCode == "21212")
+```
+
+    ## [1] 28
+
+``` r
+## method # 2
+table(restaurants$zipCode %in% c("21212"))
+```
+
+    ## 
+    ## FALSE  TRUE 
+    ##  1299    28
+
+If we are searching for the occurrence of two zipcodes `21212` and `21213`, apply the same methods. The second method is more compact.
+
+``` r
+restaurants <- read.csv("Restaurants.csv")
+head(restaurants)
+```
+
+    ##                    name zipCode neighborhood councilDistrict
+    ## 1                   410   21206    Frankford               2
+    ## 2                  1919   21231  Fells Point               1
+    ## 3                 SAUTE   21224       Canton               1
+    ## 4    #1 CHINESE KITCHEN   21211      Hampden              14
+    ## 5 #1 chinese restaurant   21223     Millhill               9
+    ## 6             19TH HOLE   21218 Clifton Park              14
+    ##   policeDistrict                          Location.1
+    ## 1   NORTHEASTERN   4509 BELAIR ROAD\nBaltimore, MD\n
+    ## 2   SOUTHEASTERN      1919 FLEET ST\nBaltimore, MD\n
+    ## 3   SOUTHEASTERN     2844 HUDSON ST\nBaltimore, MD\n
+    ## 4       NORTHERN    3998 ROLAND AVE\nBaltimore, MD\n
+    ## 5   SOUTHWESTERN 2481 frederick ave\nBaltimore, MD\n
+    ## 6   NORTHEASTERN    2722 HARFORD RD\nBaltimore, MD\n
+
+``` r
+## method # 1
+sum(restaurants$zipCode == "21212" | restaurants$zipCode == "21213")
+```
+
+    ## [1] 59
+
+``` r
+## method # 2
+table(restaurants$zipCode %in% c("21212", "21213"))
+```
+
+    ## 
+    ## FALSE  TRUE 
+    ##  1268    59
+
+We can use the output of the previous example to subset our data, by putting the expression in the row subsetting part in `restaurants[rows,columns]`
+
+``` r
+## get the data of all restaurants with zipcode "21212" or "21213". I hide the result because it is big.
+restaurants[restaurants$zipCode %in% c("21212", "21213"),]
+```
+
+`stringr` Package
+=================
