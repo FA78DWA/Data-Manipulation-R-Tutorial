@@ -1575,4 +1575,4 @@ str_trim("Ichigo     ")
 Regular Expression
 ==================
 
-Regular Expression are used to increase patteren variations used for string searching. It can be used with `grep`, `grepl`, `sub`, and `gsub`. notes are [here](courses/03_GettingData/04_02_regularExpressions/index.md) and [here](courses/03_GettingData/04_03_regularExpressionsII/index.md)
+Regular Expression are used to increase patteren variations used for string searching. It can be used with `grep`, `grepl`, `sub`, and `gsub`. notes are [here](https://github.com/FA78DWA/courses/blob/master/03_GettingData/04_02_regularExpressions/index.md) and [here](https://github.com/FA78DWA/courses/blob/master/03_GettingData/04_02_regularExpressions/index.md).
