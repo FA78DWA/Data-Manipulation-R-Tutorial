@@ -554,4 +554,29 @@ We can use the output of the previous example to subset our data, by putting the
 restaurants[restaurants$zipCode %in% c("21212", "21213"),]
 ```
 
-# `stringr` Package
+# `stringr` Package and other useful functions
+* `nchar` gets the number of characters in a string.
+* `substr` gets a subset of the input string.
+* `paste` pastes two string together separated by a space.
+* `paste0` pastes two string together with no space.
+* `str_trim` cuts off any excess space at the end of a string.
+```{r}
+library(stringr)
+
+## number of characters
+nchar("Kurosaki Ichigo") #bleach anime :D
+
+## get the first name
+substr("Kurosaki Ichigo",1,8)
+
+## paste
+paste("Kurosaki", "Luffy") #one piece :D
+
+## paste with no space. 
+paste0("Kurosaki", "Luffy") 
+
+## trim excess space
+str_trim("Ichigo     ")
+
+```
+

@@ -30,7 +30,7 @@
 -   [Find specific values in your data](#find-specific-values-in-your-data)
     -   [Using `grep()`, and `grepl()`](#using-grep-and-grepl)
     -   [Using `%in%`](#using-in)
--   [`stringr` Package](#stringr-package)
+-   [`stringr` Package and other useful functions](#stringr-package-and-other-useful-functions)
 
 Creating and subsetting dataframes
 ==================================
@@ -1525,5 +1525,48 @@ We can use the output of the previous example to subset our data, by putting the
 restaurants[restaurants$zipCode %in% c("21212", "21213"),]
 ```
 
-`stringr` Package
-=================
+`stringr` Package and other useful functions
+============================================
+
+-   `nchar` gets the number of characters in a string.
+-   `substr` gets a subset of the input string.
+-   `paste` pastes two string together separated by a space.
+-   `paste0` pastes two string together with no space.
+-   `str_trim` cuts off any excess space at the end of a string.
+
+``` r
+library(stringr)
+
+## number of characters
+nchar("Kurosaki Ichigo") #bleach anime :D
+```
+
+    ## [1] 15
+
+``` r
+## get the first name
+substr("Kurosaki Ichigo",1,8)
+```
+
+    ## [1] "Kurosaki"
+
+``` r
+## paste
+paste("Kurosaki", "Luffy") #one piece :D
+```
+
+    ## [1] "Kurosaki Luffy"
+
+``` r
+## paste with no space. 
+paste0("Kurosaki", "Luffy") 
+```
+
+    ## [1] "KurosakiLuffy"
+
+``` r
+## trim excess space
+str_trim("Ichigo     ")
+```
+
+    ## [1] "Ichigo"
