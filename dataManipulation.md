@@ -31,6 +31,7 @@
     -   [Using `grep()`, and `grepl()`](#using-grep-and-grepl)
     -   [Using `%in%`](#using-in)
 -   [`stringr` Package and other useful functions](#stringr-package-and-other-useful-functions)
+-   [Regular Expression](#regular-expression)
 
 Creating and subsetting dataframes
 ==================================
@@ -1570,3 +1571,8 @@ str_trim("Ichigo     ")
 ```
 
     ## [1] "Ichigo"
+
+Regular Expression
+==================
+
+Regular Expression are used to increase patteren variations used for string searching. It can be used with `grep`, `grepl`, `sub`, and `gsub`. notes are [here](courses/03_GettingData/04_02_regularExpressions/index.md) and [here](courses/03_GettingData/04_03_regularExpressionsII/index.md)
